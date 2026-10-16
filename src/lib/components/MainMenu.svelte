@@ -1,5 +1,5 @@
 <script>
-  import { menuOpen, currentPage, mapMode, filterPanelOpen } from '$lib/stores/ui.js';
+  import { menuOpen, currentPage, filterPanelOpen } from '$lib/stores/ui.js';
   import { currentUser, signOut, authOpen } from '$lib/stores/auth.js';
   import { downloadInventoryCSV } from '$lib/utils/export.js';
 
@@ -38,9 +38,6 @@
     </div>
     {#if $currentPage === 'map'}
       <div class="menu-section menu-map-controls">
-        <button class="menu-item" onclick={() => { mapMode.update(m => m === 'satellite' ? 'light' : 'satellite'); close(); }}>
-          {$mapMode === 'satellite' ? 'Switch to Street Map' : 'Switch to Satellite'}
-        </button>
         <button class="menu-item" onclick={() => { filterPanelOpen.update(v => !v); close(); }}>
           Filters
         </button>

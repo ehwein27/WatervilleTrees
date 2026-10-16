@@ -604,13 +604,6 @@
           </button>
         </div>
         <!-- Mobile map controls -->
-        <button class="hdr-icon-btn" onclick={() => mapRef?.toggleMode()} title={$mapMode === 'satellite' ? 'Switch to street map' : 'Switch to satellite'} aria-label={$mapMode === 'satellite' ? 'Switch to street map' : 'Switch to satellite'}>
-          {#if $mapMode === 'satellite'}
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
-          {:else}
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a7.31 7.31 0 0 0 10 10Z"/><path d="m9 15 3-3"/><path d="M17 13a6 6 0 0 0-6-6"/><path d="M21 13A10 10 0 0 0 11 3"/></svg>
-          {/if}
-        </button>
         <button class="hdr-icon-btn" class:active={$filterPanelOpen} onclick={() => filterPanelOpen.update(v => !v)} title="Filters" aria-label="Filters">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
         </button>
