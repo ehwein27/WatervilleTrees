@@ -301,30 +301,37 @@
 
   <!-- Cover -->
   <div class="cover" class:cemetery={data.isCemetery}>
-    <div class="cover-accent"></div>
-    <div class="cover-body">
-      <div class="org">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:5px;flex-shrink:0"><path d="M12 2C12 2 6 8 6 14a6 6 0 0 0 12 0c0-6-6-12-6-12z" fill="#2d5a27" fill-opacity=".7"/><path d="M12 22v-8" stroke="#2d5a27" stroke-width="1.5" stroke-linecap="round"/></svg>
-        City of Waterville, Maine &nbsp;·&nbsp; Urban Tree Inventory
+    <!-- Dark header band -->
+    <div class="cover-header">
+      <div class="cover-header-inner">
+        <div class="cover-org-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;opacity:.9"><path d="M12 2C12 2 6 8 6 14a6 6 0 0 0 12 0c0-6-6-12-6-12z" fill="rgba(255,255,255,.85)"/><path d="M12 22v-8" stroke="rgba(255,255,255,.7)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="cover-org-name">City of Waterville, Maine</span>
+          <span class="cover-org-sep">·</span>
+          <span class="cover-org-sub">Urban Tree Inventory</span>
+        </div>
+        <h1>{data.title}</h1>
+        {#if data.subtitle}<div class="cover-sub">{data.subtitle}</div>{/if}
       </div>
-      <h1>{data.title}</h1>
-      {#if data.subtitle}<div class="cover-sub">{data.subtitle}</div>{/if}
-      <div class="cover-meta-row">
-        <div class="cover-meta-item">
-          <span class="cover-meta-label">Generated</span>
-          <span class="cover-meta-val">{genDate}</span>
-        </div>
-        <div class="cover-meta-divider"></div>
-        <div class="cover-meta-item">
-          <span class="cover-meta-label">Trees</span>
-          <span class="cover-meta-val">{data.stats.total}</span>
-        </div>
-        <div class="cover-meta-divider"></div>
-        <div class="cover-meta-item">
-          <span class="cover-meta-label">Data</span>
-          <span class="cover-meta-val">Live · refreshes on load</span>
-        </div>
+    </div>
+    <!-- Light meta strip -->
+    <div class="cover-meta-strip">
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Generated</span>
+        <span class="cover-meta-val">{genDate}</span>
       </div>
+      <div class="cover-meta-divider"></div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Trees in report</span>
+        <span class="cover-meta-val">{data.stats.total}</span>
+      </div>
+      <div class="cover-meta-divider"></div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Source</span>
+        <span class="cover-meta-val">Live · refreshes on load</span>
+      </div>
+    </div>
+    <div class="cover-btn-row">
       <button class="dl-btn" onclick={() => window.print()} title="Print report">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
         Print / Save as PDF
@@ -445,90 +452,110 @@
 
   /* ── Cover ──────────────────────────────────────────────────────── */
   .cover {
-    padding: 0 0 36px;
-    border-bottom: 2px solid rgba(45,90,39,.2);
-    margin-bottom: 32px;
-  }
-  .cover-accent {
-    height: 5px;
-    background: linear-gradient(90deg, #2d5a27, #5a8a40, #c9973a);
-    margin-bottom: 44px;
+    margin-bottom: 36px;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(15,46,20,.18);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  .cemetery .cover-accent {
-    background: linear-gradient(90deg, #3a0f0f, #6b1a1a, #8a3030);
+
+  /* Dark green header band */
+  .cover-header {
+    background: #162d12;
+    padding: 44px 40px 40px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  .cover-body { text-align: center; padding: 0 24px; }
-  .org {
-    display: inline-flex;
-    align-items: center;
-    font-size: .64rem;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    color: #2d5a27;
-    margin-bottom: 14px;
-    font-weight: 600;
-  }
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #0f2e14;
-    line-height: 1.18;
-    margin-bottom: 10px;
-    letter-spacing: -.01em;
-  }
-  .cemetery h1 { color: #3a0f0f; }
-  .cover-sub {
-    font-family: 'Playfair Display', serif;
-    font-size: .9rem;
-    color: #5c3d08;
-    font-style: italic;
-    margin-bottom: 20px;
-    opacity: .8;
-  }
-  .cover-meta-row {
+  .cemetery .cover-header { background: #1e0808; }
+  .cover-header-inner { max-width: 760px; }
+
+  .cover-org-row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0;
-    margin: 0 auto 22px;
-    max-width: 600px;
-    border: 1px solid rgba(120,80,20,.2);
-    border-radius: 6px;
-    overflow: hidden;
+    gap: 8px;
+    margin-bottom: 24px;
   }
+  .cover-org-name {
+    font-size: .65rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
+  }
+  .cover-org-sep { color: rgba(255,255,255,.3); font-size: .65rem; }
+  .cover-org-sub {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(201,151,58,.9);
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    letter-spacing: -.015em;
+  }
+  .cemetery h1 { color: #f5e0e0; }
+
+  .cover-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem;
+    color: rgba(255,255,255,.55);
+    font-style: italic;
+  }
+
+  /* Light meta strip below the dark header */
+  .cover-meta-strip {
+    display: flex;
+    align-items: stretch;
+    background: #f0ead8;
+    border-top: 3px solid #c9973a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cemetery .cover-meta-strip { border-top-color: #6b1a1a; }
   .cover-meta-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 10px 20px;
+    padding: 13px 22px;
     flex: 1;
-    min-width: 120px;
   }
-  .cover-meta-item + .cover-meta-item { border-left: 1px solid rgba(120,80,20,.15); }
+  .cover-meta-item + .cover-meta-item {
+    border-left: 1px solid rgba(120,80,20,.18);
+  }
   .cover-meta-label {
-    font-size: .58rem;
-    letter-spacing: .12em;
+    font-size: .57rem;
+    letter-spacing: .13em;
     text-transform: uppercase;
-    color: #a08050;
-    margin-bottom: 2px;
+    color: #8a6030;
+    margin-bottom: 3px;
   }
   .cover-meta-val {
-    font-size: .76rem;
-    font-weight: 500;
-    color: #2a1e0a;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #1a1507;
   }
   .cover-meta-divider { display: none; }
+
+  .cover-btn-row {
+    background: #f0ead8;
+    padding: 0 22px 18px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 
   /* ── Print button ───────────────────────────────────────────────── */
   .dl-btn {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    background: #2d5a27;
+    background: #162d12;
     border: none;
     border-radius: 5px;
     padding: 9px 20px;
@@ -540,7 +567,7 @@
     cursor: pointer;
     transition: background .15s, transform .1s;
   }
-  .dl-btn:hover { background: #1f4019; transform: translateY(-1px); }
+  .dl-btn:hover { background: #0e1e0b; transform: translateY(-1px); }
   .dl-btn:active { transform: translateY(0); }
   .cemetery .dl-btn { background: #6b1a1a; }
   .cemetery .dl-btn:hover { background: #4a1010; }
@@ -734,10 +761,10 @@
   @media print {
     :global(body) { background: #fdf8f0 !important; }
     .dl-btn { display: none !important; }
+    .cover-btn-row { display: none !important; }
     .page   { max-width: 100%; padding: 0; }
-    .cover  { padding: 0 0 28px; }
-    .cover-accent { margin-bottom: 32px; }
-    .cover-body { padding: 0; }
+    .cover  { border-radius: 0; box-shadow: none; margin-bottom: 28px; }
+    .cover-header { padding: 36px 32px 32px; }
 
     .print-running-hdr {
       display: flex;
