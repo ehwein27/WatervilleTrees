@@ -635,10 +635,17 @@
     style:display={$currentPage !== 'map' || (activeModal && activeModal !== MODAL.ADD_TREE) ? 'none' : 'flex'}
     onclick={() => { if (!$currentUser) { authOpen.set(true); return; } treePlaced = false; activeModal = MODAL.ADD_TREE; }}>+</button>
 
-  {#if $loading}
-    <div id="map-loading">Loading tree inventory…</div>
-  {:else if $loadError}
-    <div id="map-loading" style="color:var(--red)">Error: {$loadError}</div>
+  {#if $loading || $loadError}
+    <div id="map-loading" class:has-error={$loadError}>
+      <svg class="loading-leaf" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 22c3-4 6-7 9-8-2.24 4-4.48 6.73-6.82 7 .56-7.04 7-12 11-13z"/></svg>
+      <div class="loading-title">Waterville Tree Inventory</div>
+      {#if $loadError}
+        <div class="loading-sub" style="color:var(--red)">{$loadError}</div>
+      {:else}
+        <div class="loading-sub">Loading inventory…</div>
+        <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+      {/if}
+    </div>
   {:else}
     <div style={$currentPage === 'inventory-archive' || $currentPage === 'cumulative' || $currentPage === 'about' || $currentPage === 'prospective-planting' || $currentPage === 'account-settings' || $currentPage === 'admin' ? 'display:none' : 'display:contents'}>
       <Map bind:this={mapRef} />
@@ -996,16 +1003,56 @@
   }
   #map-loading {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(27,21,7,.92);
-    border: 1px solid rgba(201,151,58,.3);
-    border-radius: 8px;
-    padding: 24px 36px;
-    font-size: .75rem;
-    letter-spacing: .08em;
+    inset: 0;
     z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .loading-leaf {
+    color: var(--canopy);
+    opacity: .7;
+    animation: leafPulse 2s ease-in-out infinite;
+  }
+  @keyframes leafPulse {
+    0%, 100% { opacity: .5; transform: scale(1); }
+    50%       { opacity: .9; transform: scale(1.08); }
+  }
+  .loading-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--bark);
+    letter-spacing: .01em;
+    margin-top: 4px;
+  }
+  .loading-sub {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--parch-dim);
+  }
+  .loading-bar {
+    width: 140px;
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .loading-bar-fill {
+    height: 100%;
+    width: 40%;
+    background: var(--gold);
+    border-radius: 2px;
+    animation: loadingSlide 1.4s ease-in-out infinite;
+  }
+  @keyframes loadingSlide {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
   }
   .place-banner {
     position: fixed;
