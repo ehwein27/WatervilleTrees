@@ -122,8 +122,8 @@
 
 <style>
   .ptc-overlay{position:fixed;inset:0;z-index:8000;background:#fff;overflow-y:auto;display:flex;flex-direction:column;align-items:center;padding:24px}
-  .ptc-close-btn{position:fixed;top:16px;right:80px;background:#f5f5f7;border:1px solid #d0d0d5;border-radius:6px;padding:6px 14px;font-family:'DM Mono',monospace;font-size:.6rem;color:#1c1c1e;cursor:pointer;z-index:8001}
-  .ptc-print-btn{position:fixed;top:16px;right:16px;background:#1c1c1e;border:none;border-radius:6px;padding:6px 14px;font-family:'DM Mono',monospace;font-size:.6rem;color:#fff;cursor:pointer;z-index:8001}
+  .ptc-close-btn{position:fixed;top:16px;right:80px;background:#f5f5f7;border:1px solid #d0d0d5;border-radius:6px;padding:6px 14px;font-family:'Outfit',sans-serif;font-size:.6rem;color:#1c1c1e;cursor:pointer;z-index:8001}
+  .ptc-print-btn{position:fixed;top:16px;right:16px;background:#1c1c1e;border:none;border-radius:6px;padding:6px 14px;font-family:'Outfit',sans-serif;font-size:.6rem;color:#fff;cursor:pointer;z-index:8001}
   .ptc-wrap{max-width:680px;width:100%;background:#fff;padding:32px 28px;display:flex;flex-direction:column;gap:18px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1c1c1e}
   .ptc-hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:16px;border-bottom:2px solid #1c1c1e}
   .ptc-title{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:700;color:#1c1c1e;line-height:1.2}

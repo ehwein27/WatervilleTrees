@@ -73,5 +73,5 @@
 </div>
 
 <style>
-  .menu-admin { color: #c9973a; }
+  .menu-admin { color: var(--gold); }
 </style>

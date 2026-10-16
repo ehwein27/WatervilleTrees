@@ -68,7 +68,7 @@
           <div class="about-td">Reduction in building heating and cooling costs through shading in summer and windbreak effects in winter for nearby structures.</div>
         </div>
         <div class="about-tbl-row last" style="grid-template-columns:1fr 2fr">
-          <div class="about-td-bold" style="color:#2a7d24;font-weight:600">Total Annual Value</div>
+          <div class="about-td-bold" style="color:var(--canopy);font-weight:600">Total Annual Value</div>
           <div class="about-td">Sum of all four services, expressed in dollars per year.</div>
         </div>
       </div>
@@ -102,12 +102,12 @@
         </div>
         {#each sampleRows as row, i}
           <div class="about-tbl-row" class:last={i === sampleRows.length - 1} style="grid-template-columns:80px repeat(5,1fr)">
-            <div style="padding:7px 10px;font-size:.76rem;color:#1c1c1e;text-align:right;font-family:'DM Mono',monospace">{row.d}"</div>
-            <div style="padding:7px 10px;font-size:.76rem;color:#2a7d24;text-align:right;font-weight:600">${row.total}</div>
-            <div style="padding:7px 10px;font-size:.76rem;color:#3a3a3a;text-align:right">${row.co2}</div>
-            <div style="padding:7px 10px;font-size:.76rem;color:#3a3a3a;text-align:right">${row.air}</div>
-            <div style="padding:7px 10px;font-size:.76rem;color:#3a3a3a;text-align:right">${row.storm}</div>
-            <div style="padding:7px 10px;font-size:.76rem;color:#3a3a3a;text-align:right">${row.energy}</div>
+            <div class="about-td" style="text-align:right;font-variant-numeric:tabular-nums">{row.d}"</div>
+            <div class="about-td" style="text-align:right;font-weight:600;color:var(--canopy)">${row.total}</div>
+            <div class="about-td" style="text-align:right">${row.co2}</div>
+            <div class="about-td" style="text-align:right">${row.air}</div>
+            <div class="about-td" style="text-align:right">${row.storm}</div>
+            <div class="about-td" style="text-align:right">${row.energy}</div>
           </div>
         {/each}
       </div>
@@ -163,36 +163,36 @@
         <div class="about-tbl-row" style="grid-template-columns:2fr 3fr 80px">
           <div class="about-td-bold">Condition: Poor</div>
           <div class="about-td">Tree is in poor health — significant decline, dieback, or damage observed in the field.</div>
-          <div class="about-td" style="text-align:right;font-family:'DM Mono',monospace;color:#d06828">−40 pts</div>
+          <div class="about-td" style="text-align:right;font-family:'Outfit',sans-serif;color:#d06828">−40 pts</div>
         </div>
         <div class="about-tbl-row" style="grid-template-columns:2fr 3fr 80px">
           <div class="about-td-bold">Condition: Fair</div>
           <div class="about-td">Tree shows some decline or minor damage but retains meaningful canopy and function.</div>
-          <div class="about-td" style="text-align:right;font-family:'DM Mono',monospace;color:#d4ae30">−18 pts</div>
+          <div class="about-td" style="text-align:right;font-family:'Outfit',sans-serif;color:#d4ae30">−18 pts</div>
         </div>
         <div class="about-tbl-row" style="grid-template-columns:2fr 3fr 80px">
           <div class="about-td-bold">High-risk observation</div>
           <div class="about-td">Each structural defect with direct failure implications. Up to three can contribute to the score.</div>
-          <div class="about-td" style="text-align:right;font-family:'DM Mono',monospace;color:#d06828">−12 pts each</div>
+          <div class="about-td" style="text-align:right;font-family:'Outfit',sans-serif;color:#d06828">−12 pts each</div>
         </div>
         <div class="about-tbl-row" style="grid-template-columns:2fr 3fr 80px">
           <div class="about-td-bold">Moderate-risk observation</div>
           <div class="about-td">Each observation indicating elevated concern. Combined observation deductions are capped at 36 points total.</div>
-          <div class="about-td" style="text-align:right;font-family:'DM Mono',monospace;color:#d4ae30">−6 pts each</div>
+          <div class="about-td" style="text-align:right;font-family:'Outfit',sans-serif;color:#d4ae30">−6 pts each</div>
         </div>
         <div class="about-tbl-row" style="grid-template-columns:2fr 3fr 80px">
           <div class="about-td-bold">EAB risk</div>
           <div class="about-td">Ash species (genus Fraxinus) face near-certain mortality without treatment due to Emerald Ash Borer.</div>
-          <div class="about-td" style="text-align:right;font-family:'DM Mono',monospace;color:#d4ae30">−12 pts</div>
+          <div class="about-td" style="text-align:right;font-family:'Outfit',sans-serif;color:#d4ae30">−12 pts</div>
         </div>
         <div class="about-tbl-row last" style="grid-template-columns:2fr 3fr 80px">
           <div class="about-td-bold">Over-mature age class</div>
           <div class="about-td">Trees classified as over-mature carry modestly elevated structural risk as they approach the end of their natural lifespan.</div>
-          <div class="about-td" style="text-align:right;font-family:'DM Mono',monospace;color:#5c3d08">−6 pts</div>
+          <div class="about-td" style="text-align:right;font-family:'Outfit',sans-serif;color:#5c3d08">−6 pts</div>
         </div>
       </div>
 
-      <div class="about-obs-title">High-Risk Observations <span style="font-size:.68rem;color:#3a3a3a;text-transform:none;letter-spacing:0;font-weight:400">(−12 pts each)</span></div>
+      <div class="about-obs-title">High-Risk Observations <span style="font-size:.68rem;color:var(--parch-dim);text-transform:none;letter-spacing:0;font-weight:400">(−12 pts each)</span></div>
       <div class="about-obs-list" style="margin-bottom:20px">
         {#each [
           'Cavity-stem','Crack-stem','Dead/dying stem','Dieback (severe)',
@@ -204,7 +204,7 @@
         {/each}
       </div>
 
-      <div class="about-obs-title">Moderate-Risk Observations <span style="font-size:.68rem;color:#3a3a3a;text-transform:none;letter-spacing:0;font-weight:400">(−6 pts each)</span></div>
+      <div class="about-obs-title">Moderate-Risk Observations <span style="font-size:.68rem;color:var(--parch-dim);text-transform:none;letter-spacing:0;font-weight:400">(−6 pts each)</span></div>
       <div class="about-obs-list" style="margin-bottom:20px">
         {#each [
           'Cavity-branch','Cavity-suspected','Crack-branch','Dead branches >2',
@@ -232,47 +232,47 @@
 </div>
 
 <style>
-  .about-overlay{flex:1;min-height:0;background:#fdf8f0;overflow-y:auto;text-align:left}
+  .about-overlay{flex:1;min-height:0;background:var(--bg);overflow-y:auto;text-align:left}
   .about-wrap{width:100%;max-width:760px;margin:0 auto;padding:48px 28px 60px;display:flex;flex-direction:column;gap:48px}
-  .about-back{background:transparent;border:1px solid rgba(120,80,20,.25);border-radius:4px;padding:5px 13px;font-family:'DM Mono',monospace;font-size:.74rem;color:#5c3d08;cursor:pointer;transition:all .13s}
-  .about-back:hover{background:rgba(92,61,8,.1);border-color:#5c3d08}
-  .about-kicker{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#c9973a;margin-bottom:6px}
-  .about-title{font-family:'Playfair Display',serif;font-size:2.2rem;color:#0f2e14;margin-bottom:10px}
-  .about-h2{font-family:'Playfair Display',serif;font-size:1.7rem;color:#2a7d24;margin-bottom:14px}
-  .about-body{font-size:.85rem;color:#3a3a3a;line-height:1.85}
-  .about-em{color:#1c1c1e}
-  .about-link{color:#c9973a;text-decoration:underline dotted;text-underline-offset:2px}
-  .about-pts{color:#1c1c1e}
+  .about-back{background:transparent;border:1px solid var(--border);border-radius:4px;padding:5px 13px;font-family:'Outfit',sans-serif;font-size:.74rem;color:var(--parch-dim);cursor:pointer;transition:all .13s}
+  .about-back:hover{background:var(--gold-hi);border-color:var(--gold)}
+  .about-kicker{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .about-title{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--parch);margin-bottom:10px}
+  .about-h2{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--canopy);margin-bottom:14px}
+  .about-body{font-size:.85rem;color:var(--parch-dim);line-height:1.85}
+  .about-em{color:var(--parch)}
+  .about-link{color:var(--gold);text-decoration:underline dotted;text-underline-offset:2px}
+  .about-pts{color:var(--parch)}
 
-  .about-table{border:1px solid rgba(120,80,20,.18);border-radius:7px;overflow:hidden;margin-bottom:20px}
-  .about-tbl-hdr{display:grid;background:#231c09;border-bottom:1px solid rgba(120,80,20,.18)}
-  .about-th{padding:7px 14px;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#c9973a}
-  .about-tbl-row{display:grid;border-bottom:1px solid rgba(201,151,58,.08)}
+  .about-table{border:1px solid var(--border);border-radius:7px;overflow:hidden;margin-bottom:20px}
+  .about-tbl-hdr{display:grid;background:var(--panel3);border-bottom:1px solid var(--border)}
+  .about-th{padding:7px 14px;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  .about-tbl-row{display:grid;border-bottom:1px solid rgba(120,80,20,.1)}
   .about-tbl-row.last{border-bottom:none}
-  .about-td-bold{padding:9px 14px;font-size:.78rem;color:#1c1c1e;font-weight:500}
-  .about-td{padding:9px 14px;font-size:.76rem;color:#3a3a3a;line-height:1.65}
+  .about-td-bold{padding:9px 14px;font-size:.78rem;color:var(--parch);font-weight:500}
+  .about-td{padding:9px 14px;font-size:.76rem;color:var(--parch-dim);line-height:1.65}
 
   .about-risk-bands{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
   .about-band{border:1px solid;border-radius:6px;padding:11px 12px}
   .about-band-lbl{font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:3px}
   .about-band-range{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:4px}
-  .about-band-desc{font-size:.72rem;color:#3a3a3a;line-height:1.6}
+  .about-band-desc{font-size:.72rem;color:var(--parch-dim);line-height:1.6}
 
-  .about-obs-title{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#c9973a;margin-bottom:8px}
+  .about-obs-title{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
   .about-obs-list{display:flex;flex-wrap:wrap;gap:4px}
   .about-obs-tag{border-radius:3px;padding:2px 7px;font-size:.68rem}
   .about-obs-tag.high{background:rgba(160,30,30,.1);border:1px solid rgba(160,30,30,.45);color:#8a1a1a}
   .about-obs-tag.mod{background:rgba(130,90,10,.1);border:1px solid rgba(130,90,10,.4);color:#5c3d08}
 
-  .about-callout{border:1px solid rgba(201,151,58,.35);background:rgba(201,151,58,.06);border-radius:7px;padding:16px 18px;margin-bottom:20px}
-  .about-callout-title{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#c9973a;margin-bottom:8px;font-weight:600}
+  .about-callout{border:1px solid rgba(201,151,58,.35);background:var(--gold-hi);border-radius:7px;padding:16px 18px;margin-bottom:20px}
+  .about-callout-title{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
 
   .about-toggle-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-  .about-toggle-label{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#c9973a;white-space:nowrap}
-  .about-pill-toggle{display:flex;border:1px solid rgba(120,80,20,.3);border-radius:20px;overflow:hidden;background:#f5f0e8}
-  .about-pill-btn{padding:5px 14px;font-family:'DM Mono',monospace;font-size:.72rem;border:none;background:transparent;color:#5c3d08;cursor:pointer;transition:background .15s,color .15s}
-  .about-pill-btn.active{background:#231c09;color:#c9973a}
-  .about-pill-btn:not(.active):hover{background:rgba(120,80,20,.1)}
+  .about-toggle-label{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+  .about-pill-toggle{display:flex;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--panel2)}
+  .about-pill-btn{padding:5px 14px;font-family:'Outfit',sans-serif;font-size:.72rem;border:none;background:transparent;color:var(--parch-dim);cursor:pointer;transition:background .15s,color .15s}
+  .about-pill-btn.active{background:var(--panel3);color:var(--gold);box-shadow:inset 0 1px 3px rgba(0,0,0,.15)}
+  .about-pill-btn:not(.active):hover{background:var(--gold-hi)}
 
   @media(max-width:600px){.about-risk-bands{grid-template-columns:1fr 1fr}}
 </style>

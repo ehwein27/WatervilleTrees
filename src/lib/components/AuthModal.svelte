@@ -152,13 +152,13 @@
     background: none;
     border: none;
     padding: 0;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .72rem;
-    color: #c9973a;
+    color: var(--gold);
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 2px;
   }
-  .forgot-link:hover { color: #e0a83f; }
-  .auth-ok { color: #2a7d24 !important; }
+  .forgot-link:hover { opacity: .8; }
+  .auth-ok { color: var(--canopy) !important; }
 </style>

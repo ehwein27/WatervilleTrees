@@ -81,6 +81,6 @@
   .rl-tag-rm{background:none;border:none;color:var(--parch-dim);font-size:.5rem;cursor:pointer;padding:0;line-height:1}
   .rl-tag-rm:hover{color:var(--red)}
   .rl-add-row{display:flex;gap:5px;align-items:center}
-  .rl-select{font-size:.56rem;padding:3px 6px;background:var(--panel2);border:1px solid var(--border);border-radius:3px;color:var(--parch);font-family:'DM Mono',monospace}
+  .rl-select{font-size:.56rem;padding:3px 6px;background:var(--panel2);border:1px solid var(--border);border-radius:3px;color:var(--parch);font-family:'Outfit',sans-serif}
   .rl-select option{background:var(--panel)}
 </style>

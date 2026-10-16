@@ -384,7 +384,7 @@
 <style>
   .ia-view {
     flex: 1;
-    background: #fdf8f0;
+    background: var(--bg);
     overflow-y: auto;
   }
   .ia-wrap {
@@ -405,7 +405,7 @@
     display: inline-flex; align-items: center; gap: 5px;
     background: transparent; border: 1px solid rgba(120,80,20,.25);
     border-radius: 4px; padding: 5px 12px;
-    font-family: 'DM Mono', monospace; font-size: .74rem;
+    font-family: 'Outfit', sans-serif; font-size: .74rem;
     color: #5c3d08; cursor: pointer; width: fit-content;
     transition: border-color .13s, background .13s;
   }
@@ -476,7 +476,7 @@
     background: transparent;
     border: 1px solid rgba(120,80,20,.3);
     border-radius: 4px; padding: 6px 14px;
-    font-family: 'DM Mono', monospace; font-size: .72rem;
+    font-family: 'Outfit', sans-serif; font-size: .72rem;
     color: #5c3d08; cursor: pointer;
     white-space: nowrap;
     transition: border-color .13s, background .13s;

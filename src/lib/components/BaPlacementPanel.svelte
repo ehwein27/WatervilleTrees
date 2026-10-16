@@ -233,7 +233,7 @@
     padding: 14px 16px 12px;
     z-index: 9998;
     box-shadow: 0 8px 36px rgba(0,0,0,.7);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -325,7 +325,7 @@
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 5px 8px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .68rem;
     color: var(--parch);
     width: 100%;
@@ -357,7 +357,7 @@
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 5px 11px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .65rem;
     color: var(--parch-dim);
     cursor: pointer;

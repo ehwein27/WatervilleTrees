@@ -329,7 +329,7 @@
   .pp-view {
     position: absolute;
     inset: 0;
-    background: #fdf8f0;
+    background: var(--bg);
     overflow-y: auto;
     z-index: 2;
   }
@@ -352,7 +352,7 @@
     display: inline-flex; align-items: center; gap: 5px;
     background: transparent; border: 1px solid rgba(120,80,20,.25);
     border-radius: 4px; padding: 5px 12px;
-    font-family: 'DM Mono', monospace; font-size: .74rem;
+    font-family: 'Outfit', sans-serif; font-size: .74rem;
     color: #5c3d08; cursor: pointer; width: fit-content;
     transition: border-color .13s, background .13s;
   }
@@ -374,7 +374,7 @@
     background: transparent;
     border: 1px solid rgba(158,32,32,.25);
     border-radius: 4px; padding: 6px 13px;
-    font-family: 'DM Mono', monospace; font-size: .64rem;
+    font-family: 'Outfit', sans-serif; font-size: .64rem;
     color: #9e2020; cursor: pointer; flex-shrink: 0; align-self: flex-start;
     margin-top: 6px;
     transition: border-color .13s, background .13s;
@@ -407,7 +407,7 @@
     display: inline-flex; align-items: center; gap: 7px;
     background: #1a5216; border: none; border-radius: 5px;
     padding: 10px 20px;
-    font-family: 'DM Mono', monospace; font-size: .68rem;
+    font-family: 'Outfit', sans-serif; font-size: .68rem;
     color: #fff; cursor: pointer; flex-shrink: 0;
     transition: opacity .13s;
   }
@@ -454,7 +454,7 @@
   .pp-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .62rem;
     min-width: 720px;
   }
@@ -479,7 +479,7 @@
   .pp-th-notes  { }
   .pp-th-del    { width: 36px; }
 
-  .pp-tr { background: #fdf8f0; }
+  .pp-tr { background: var(--bg); }
   .pp-tr:nth-child(even) { background: #f7f0e6; }
   .pp-tr:hover { background: #f2e9d8; }
 
@@ -502,7 +502,7 @@
     border: 1px solid transparent;
     border-radius: 3px;
     padding: 4px 6px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .62rem;
     color: #0f0f0f;
     outline: none;
@@ -525,7 +525,7 @@
     border: 1px solid transparent;
     border-radius: 3px;
     padding: 4px 6px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .58rem;
     font-weight: 600;
     cursor: pointer;
@@ -545,7 +545,7 @@
     background: rgba(26,82,22,.1);
     border: 1px solid rgba(26,82,22,.3);
     border-radius: 3px; padding: 4px 8px;
-    font-family: 'DM Mono', monospace; font-size: .54rem;
+    font-family: 'Outfit', sans-serif; font-size: .54rem;
     color: #1a5216; cursor: pointer; flex-shrink: 0; white-space: nowrap;
     transition: background .12s, border-color .12s;
   }
@@ -591,7 +591,7 @@
     background: transparent;
     border: 1px dashed rgba(120,80,20,.35);
     border-radius: 4px; padding: 7px 16px;
-    font-family: 'DM Mono', monospace; font-size: .62rem;
+    font-family: 'Outfit', sans-serif; font-size: .62rem;
     color: #5c3d08; cursor: pointer;
     transition: border-color .13s, background .13s, color .13s;
   }
@@ -606,8 +606,8 @@
   }
   .pp-label-opt { font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .55; }
   .pp-input {
-    background: #fdf8f0; border: 1px solid rgba(120,80,20,.28); border-radius: 4px;
-    padding: 7px 10px; font-family: 'DM Mono', monospace; font-size: .64rem;
+    background: var(--bg); border: 1px solid rgba(120,80,20,.28); border-radius: 4px;
+    padding: 7px 10px; font-family: 'Outfit', sans-serif; font-size: .64rem;
     color: #0f0f0f; outline: none; width: 100%; transition: border-color .13s;
     max-width: 420px;
   }
@@ -619,7 +619,7 @@
   .pp-gen-btn {
     display: inline-flex; align-items: center; gap: 6px;
     background: #1a5216; border: none; border-radius: 4px;
-    padding: 8px 18px; font-family: 'DM Mono', monospace; font-size: .62rem;
+    padding: 8px 18px; font-family: 'Outfit', sans-serif; font-size: .62rem;
     color: #fff; cursor: pointer; flex-shrink: 0; transition: opacity .13s;
   }
   .pp-gen-btn:hover { opacity: .85; }

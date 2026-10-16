@@ -138,7 +138,7 @@
   .list-tree-meta.cp{color:#e07a30}
   .list-tree-meta.cd{color:#d04444}
   .lists-empty{font-size:.6rem;color:var(--parch-dim);font-style:italic;padding:10px 0}
-  .list-btn{background:transparent;border:1px solid var(--border);border-radius:3px;padding:4px 12px;font-family:'DM Mono',monospace;font-size:.56rem;color:var(--parch-dim);cursor:pointer;transition:all .13s;flex-shrink:0}
+  .list-btn{background:transparent;border:1px solid var(--border);border-radius:3px;padding:4px 12px;font-family:'Outfit',sans-serif;font-size:.56rem;color:var(--parch-dim);cursor:pointer;transition:all .13s;flex-shrink:0}
   .list-btn:hover{border-color:var(--gold);color:var(--parch)}
   .list-btn.primary{background:var(--gold);border-color:var(--gold);color:var(--bark)}
   .list-btn.primary:hover{opacity:.85}

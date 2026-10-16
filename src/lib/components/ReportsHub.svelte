@@ -242,7 +242,7 @@
   .rh-body::-webkit-scrollbar{width:3px}
   .rh-body::-webkit-scrollbar-thumb{background:rgba(201,151,58,.3);border-radius:2px}
   .rh-section-lbl{font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);padding:6px 0 2px;margin:0}
-  .rh-card{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 14px;background:var(--panel2);border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all .15s;font-family:'DM Mono',monospace;color:inherit}
+  .rh-card{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 14px;background:var(--panel2);border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all .15s;font-family:'Outfit',sans-serif;color:inherit}
   .rh-card:hover{border-color:var(--gold);background:var(--panel3)}
   .rh-card:hover .rh-arrow{color:var(--gold);transform:translateX(2px)}
   .rh-icon{width:38px;height:38px;border-radius:6px;background:rgba(201,151,58,.1);border:1px solid rgba(201,151,58,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--canopy)}
@@ -250,10 +250,10 @@
   .rh-name{font-size:.86rem;color:var(--parch);font-weight:500;line-height:1.3;margin-bottom:2px}
   .rh-desc{font-size:.70rem;color:var(--parch-dim);line-height:1.5}
   .rh-arrow{color:var(--parch-dim);flex-shrink:0;font-size:.84rem;transition:transform .13s,color .13s}
-  .rh-back{display:flex;align-items:center;gap:6px;background:transparent;border:none;color:var(--parch-dim);font-family:'DM Mono',monospace;font-size:.74rem;cursor:pointer;padding:0;margin-bottom:4px;transition:color .13s}
+  .rh-back{display:flex;align-items:center;gap:6px;background:transparent;border:none;color:var(--parch-dim);font-family:'Outfit',sans-serif;font-size:.74rem;cursor:pointer;padding:0;margin-bottom:4px;transition:color .13s}
   .rh-back:hover{color:var(--parch)}
   .rh-section-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0 2px}
-  .rh-lock-btn{display:flex;align-items:center;gap:5px;background:transparent;border:1px solid rgba(201,151,58,.35);border-radius:4px;color:var(--gold);font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.05em;padding:3px 7px;cursor:pointer;transition:all .15s;line-height:1}
+  .rh-lock-btn{display:flex;align-items:center;gap:5px;background:transparent;border:1px solid rgba(201,151,58,.35);border-radius:4px;color:var(--gold);font-family:'Outfit',sans-serif;font-size:.62rem;letter-spacing:.05em;padding:3px 7px;cursor:pointer;transition:all .15s;line-height:1}
   .rh-lock-btn:hover{background:rgba(201,151,58,.12);border-color:var(--gold)}
 
   /* Stand Dynamic Reports — card + submenu */
@@ -271,7 +271,7 @@
   .sdr-sub-scroll{max-height:200px;overflow-y:auto}
   .sdr-sub-scroll::-webkit-scrollbar{width:3px}
   .sdr-sub-scroll::-webkit-scrollbar-thumb{background:rgba(201,151,58,.3);border-radius:2px}
-  .sdr-sub-item{display:flex;align-items:center;justify-content:space-between;padding:8px 14px 8px 64px;font-family:'DM Mono',monospace;font-size:.68rem;color:var(--parch);text-decoration:none;transition:background .1s,color .1s;border-top:1px solid var(--border)}
+  .sdr-sub-item{display:flex;align-items:center;justify-content:space-between;padding:8px 14px 8px 64px;font-family:'Outfit',sans-serif;font-size:.68rem;color:var(--parch);text-decoration:none;transition:background .1s,color .1s;border-top:1px solid var(--border)}
   .sdr-sub-item:hover{background:rgba(201,151,58,.1);color:var(--gold)}
   .sdr-sub-item::after{content:'↗';font-size:.52rem;opacity:0;transition:opacity .13s;flex-shrink:0}
   .sdr-sub-item:hover::after{opacity:.45}

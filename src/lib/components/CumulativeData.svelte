@@ -463,7 +463,7 @@
 
 <style>
   /* ── existing styles (unchanged) ── */
-  .cum-overlay{flex:1;min-height:0;background:#fdf8f0;overflow-y:auto}
+  .cum-overlay{flex:1;min-height:0;background:var(--bg);overflow-y:auto}
   .cum-wrap{width:100%;max-width:1100px;margin:0 auto;padding:32px 28px 60px;display:flex;flex-direction:column;gap:40px}
   .cum-section{display:flex;flex-direction:column;gap:16px}
   .cum-section-hdr{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#5c3d08;opacity:.55;display:flex;align-items:center;gap:10px}

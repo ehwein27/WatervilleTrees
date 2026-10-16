@@ -300,7 +300,7 @@
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 5px 8px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .62rem;
     color: var(--parch);
     outline: none;
@@ -323,7 +323,7 @@
     background: transparent;
     border: none;
     color: var(--parch);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .6rem;
     font-weight: 500;
     padding: 9px 12px;
@@ -356,7 +356,7 @@
     font-weight: 700;
     padding: 1px 5px;
     letter-spacing: 0;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
   }
 
   /* Item list */
@@ -436,7 +436,7 @@
     border: 1px solid rgba(201,151,58,.35);
     border-radius: 3px;
     padding: 4px 12px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .6rem;
     color: var(--gold);
     cursor: pointer;
@@ -481,7 +481,7 @@
     text-align: left;
     cursor: pointer;
     transition: background .1s;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .6rem;
     color: var(--parch);
   }

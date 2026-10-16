@@ -32,7 +32,7 @@
     color: #8fc67f;
     border-radius: 6px;
     padding: 9px 18px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .65rem;
     z-index: 99999;
     box-shadow: 0 4px 20px rgba(0,0,0,.5);
@@ -64,7 +64,7 @@
     max-width: 320px;
   }
   .confirm-msg {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .68rem;
     color: #f0e8d0;
     line-height: 1.5;
@@ -79,7 +79,7 @@
     border: none;
     border-radius: 4px;
     padding: 5px 16px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .63rem;
     color: #fdf8f0;
     cursor: pointer;
@@ -91,7 +91,7 @@
     border: 1px solid rgba(201,151,58,.25);
     border-radius: 4px;
     padding: 5px 16px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .63rem;
     color: #c9973a;
     cursor: pointer;

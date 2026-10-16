@@ -810,7 +810,7 @@
 <style>
   .ba-view {
     position: absolute; inset: 0;
-    background: #fdf8f0;
+    background: var(--bg);
     overflow-y: auto; z-index: 2;
   }
   .ba-wrap {
@@ -821,10 +821,10 @@
   .ba-topbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
   .ba-hero { display: flex; flex-direction: column; gap: 5px; }
   .ba-hero h1 { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: #0f2e14; margin: 0; }
-  .ba-hero p { font-family: 'DM Mono', monospace; font-size: .65rem; color: #5c3d08; line-height: 1.7; max-width: 520px; margin: 0; }
+  .ba-hero p { font-family: 'Outfit', sans-serif; font-size: .65rem; color: #5c3d08; line-height: 1.7; max-width: 520px; margin: 0; }
   .ba-back-btn {
     flex-shrink: 0; background: transparent; border: 1px solid rgba(120,80,20,.25); border-radius: 4px;
-    padding: 5px 13px; font-family: 'DM Mono', monospace; font-size: .68rem;
+    padding: 5px 13px; font-family: 'Outfit', sans-serif; font-size: .68rem;
     color: #5c3d08; cursor: pointer; transition: all .13s; white-space: nowrap;
   }
   .ba-back-btn:hover { border-color: #5c3d08; background: rgba(92,61,8,.06); }
@@ -832,7 +832,7 @@
     display: flex; align-items: center; gap: 8px;
     background: rgba(92,61,8,.06); border: 1px solid rgba(120,80,20,.2);
     border-radius: 5px; padding: 10px 13px;
-    font-family: 'DM Mono', monospace; font-size: .62rem; color: #5c3d08;
+    font-family: 'Outfit', sans-serif; font-size: .62rem; color: #5c3d08;
   }
   .ba-card {
     background: #f5ede0; border: 1px solid rgba(120,80,20,.18);
@@ -840,7 +840,7 @@
     display: flex; flex-direction: column; gap: 12px;
   }
   .ba-card-title {
-    font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .14em;
+    font-family: 'Outfit', sans-serif; font-size: .5rem; letter-spacing: .14em;
     text-transform: uppercase; color: #5c3d08;
     border-bottom: 1px solid rgba(120,80,20,.18); padding-bottom: 8px; font-weight: 600;
   }
@@ -850,12 +850,12 @@
     font-size: .56rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
     flex-shrink: 0; margin-top: 1px;
   }
-  .ba-step-body { flex: 1; font-family: 'DM Mono', monospace; font-size: .63rem; color: #5c3d08; line-height: 1.65; }
+  .ba-step-body { flex: 1; font-family: 'Outfit', sans-serif; font-size: .63rem; color: #5c3d08; line-height: 1.65; }
   .ba-step-body strong { color: #1a1208; }
   .ba-action-btn {
     display: inline-flex; align-items: center; gap: 6px;
     background: transparent; border: 1px solid rgba(120,80,20,.25); border-radius: 4px; padding: 6px 14px;
-    font-family: 'DM Mono', monospace; font-size: .61rem; color: #5c3d08; cursor: pointer; transition: all .13s;
+    font-family: 'Outfit', sans-serif; font-size: .61rem; color: #5c3d08; cursor: pointer; transition: all .13s;
   }
   .ba-action-btn:hover { border-color: #5c3d08; background: rgba(92,61,8,.06); }
   .ba-drop-zone {
@@ -865,17 +865,17 @@
   .ba-drop-zone:hover, .ba-drop-zone.drag { border-color: #1a5216; background: rgba(26,82,22,.04); }
   .ba-drop-zone.drag { border-style: solid; }
   .ba-drop-icon { font-size: 1.8rem; margin-bottom: 8px; display: block; opacity: .4; }
-  .ba-drop-title { font-family: 'DM Mono', monospace; font-size: .7rem; color: #1a1208; font-weight: 500; margin-bottom: 4px; }
-  .ba-drop-sub   { font-family: 'DM Mono', monospace; font-size: .58rem; color: #5c3d08; }
-  .ba-drop-accept { font-family: 'DM Mono', monospace; font-size: .54rem; color: rgba(92,61,8,.5); margin-top: 6px; }
+  .ba-drop-title { font-family: 'Outfit', sans-serif; font-size: .7rem; color: #1a1208; font-weight: 500; margin-bottom: 4px; }
+  .ba-drop-sub   { font-family: 'Outfit', sans-serif; font-size: .58rem; color: #5c3d08; }
+  .ba-drop-accept { font-family: 'Outfit', sans-serif; font-size: .54rem; color: rgba(92,61,8,.5); margin-top: 6px; }
   .ba-file-input { display: none; }
   .ba-progress { display: flex; flex-direction: column; gap: 7px; }
-  .ba-progress-label { font-family: 'DM Mono', monospace; font-size: .58rem; color: #5c3d08; }
+  .ba-progress-label { font-family: 'Outfit', sans-serif; font-size: .58rem; color: #5c3d08; }
   .ba-progress-bar-wrap { height: 5px; background: rgba(120,80,20,.1); border-radius: 3px; overflow: hidden; }
   .ba-progress-bar { height: 100%; background: #1a5216; border-radius: 3px; transition: width .3s ease; }
   .ba-review-wrap { display: flex; flex-direction: column; gap: 10px; }
-  .ba-review-sub { font-family: 'DM Mono', monospace; font-size: .6rem; color: #5c3d08; }
-  .ba-review-table { border: 1px solid rgba(120,80,20,.18); border-radius: 6px; overflow: hidden; font-family: 'DM Mono', monospace; font-size: .6rem; }
+  .ba-review-sub { font-family: 'Outfit', sans-serif; font-size: .6rem; color: #5c3d08; }
+  .ba-review-table { border: 1px solid rgba(120,80,20,.18); border-radius: 6px; overflow: hidden; font-family: 'Outfit', sans-serif; font-size: .6rem; }
   .ba-review-thead { background: #e8ddc8; }
   .ba-review-thead :global(th) {
     padding: 7px 10px; text-align: left; font-size: .48rem; letter-spacing: .1em; text-transform: uppercase;
@@ -889,11 +889,11 @@
   .ba-dup-row-resolved { opacity: .55; }
   .ba-dup-resolved-label { font-size: .52rem; color: #5c3d08; font-style: italic; flex: 1; }
   .ba-bulk-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 2px; }
-  .ba-accept-btn { background: #1a5216; border: none; border-radius: 3px; padding: 3px 10px; font-family: 'DM Mono', monospace; font-size: .52rem; color: #fdf8f0; font-weight: 600; cursor: pointer; }
+  .ba-accept-btn { background: #1a5216; border: none; border-radius: 3px; padding: 3px 10px; font-family: 'Outfit', sans-serif; font-size: .52rem; color: #fdf8f0; font-weight: 600; cursor: pointer; }
   .ba-accept-btn:hover { opacity: .85; }
-  .ba-skip-btn { background: transparent; border: 1px solid rgba(120,80,20,.25); border-radius: 3px; padding: 3px 10px; font-family: 'DM Mono', monospace; font-size: .52rem; color: #5c3d08; cursor: pointer; transition: all .12s; }
+  .ba-skip-btn { background: transparent; border: 1px solid rgba(120,80,20,.25); border-radius: 3px; padding: 3px 10px; font-family: 'Outfit', sans-serif; font-size: .52rem; color: #5c3d08; cursor: pointer; transition: all .12s; }
   .ba-skip-btn:hover { border-color: #5c3d08; background: rgba(92,61,8,.06); }
-  .ba-dup-btn { border-radius: 3px; padding: 3px 10px; font-family: 'DM Mono', monospace; font-size: .52rem; cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
+  .ba-dup-btn { border-radius: 3px; padding: 3px 10px; font-family: 'Outfit', sans-serif; font-size: .52rem; cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
   .ba-dup-add { background: rgba(26,82,22,.08); color: #1a5216; border-color: rgba(26,82,22,.22); }
   .ba-dup-add:hover { background: rgba(26,82,22,.15); }
   .ba-dup-replace { background: rgba(92,61,8,.08); color: #5c3d08; border-color: rgba(92,61,8,.22); }
@@ -901,25 +901,25 @@
   .ba-submit-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
   .ba-submit-btn {
     display: inline-flex; align-items: center; gap: 7px; background: #1a5216; border: none;
-    border-radius: 4px; padding: 8px 20px; font-family: 'DM Mono', monospace; font-size: .65rem;
+    border-radius: 4px; padding: 8px 20px; font-family: 'Outfit', sans-serif; font-size: .65rem;
     color: #fdf8f0; font-weight: 700; cursor: pointer; transition: opacity .13s;
   }
   .ba-submit-btn:hover { opacity: .88; }
   .ba-submit-btn:disabled { opacity: .35; cursor: not-allowed; }
-  .ba-warn-label  { font-family: 'DM Mono', monospace; font-size: .58rem; color: #9e2020; font-style: italic; }
-  .ba-muted-label { font-family: 'DM Mono', monospace; font-size: .58rem; color: #5c3d08; }
-  .ba-err { font-family: 'DM Mono', monospace; font-size: .61rem; color: #9e2020; background: rgba(158,32,32,.06); border: 1px solid rgba(158,32,32,.2); border-radius: 4px; padding: 8px 12px; }
+  .ba-warn-label  { font-family: 'Outfit', sans-serif; font-size: .58rem; color: #9e2020; font-style: italic; }
+  .ba-muted-label { font-family: 'Outfit', sans-serif; font-size: .58rem; color: #5c3d08; }
+  .ba-err { font-family: 'Outfit', sans-serif; font-size: .61rem; color: #9e2020; background: rgba(158,32,32,.06); border: 1px solid rgba(158,32,32,.2); border-radius: 4px; padding: 8px 12px; }
   .ba-saved-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f0e6d0; border-radius: 4px; border: 1px solid rgba(120,80,20,.15); }
-  .ba-saved-name { flex: 1; font-family: 'DM Mono', monospace; font-size: .6rem; color: #1a1208; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .ba-saved-meta { font-family: 'DM Mono', monospace; font-size: .54rem; color: #5c3d08; white-space: nowrap; }
+  .ba-saved-name { flex: 1; font-family: 'Outfit', sans-serif; font-size: .6rem; color: #1a1208; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ba-saved-meta { font-family: 'Outfit', sans-serif; font-size: .54rem; color: #5c3d08; white-space: nowrap; }
   .ba-saved-btns { display: flex; gap: 4px; flex-shrink: 0; }
-  .ba-mini-btn { background: transparent; border: 1px solid rgba(120,80,20,.25); border-radius: 3px; padding: 2px 8px; font-family: 'DM Mono', monospace; font-size: .52rem; color: #5c3d08; cursor: pointer; display: inline-flex; align-items: center; gap: 3px; white-space: nowrap; transition: all .12s; }
+  .ba-mini-btn { background: transparent; border: 1px solid rgba(120,80,20,.25); border-radius: 3px; padding: 2px 8px; font-family: 'Outfit', sans-serif; font-size: .52rem; color: #5c3d08; cursor: pointer; display: inline-flex; align-items: center; gap: 3px; white-space: nowrap; transition: all .12s; }
   .ba-mini-btn:hover { border-color: #5c3d08; background: rgba(92,61,8,.06); }
-  .ba-empty-note { font-family: 'DM Mono', monospace; font-size: .58rem; color: #7a6040; font-style: italic; padding: 4px 0; }
+  .ba-empty-note { font-family: 'Outfit', sans-serif; font-size: .58rem; color: #7a6040; font-style: italic; padding: 4px 0; }
   .ba-pagination { display: flex; align-items: center; gap: 10px; justify-content: center; padding: 4px 0; }
   .ba-inv-input {
     background: #f0e6d0; border: 1px solid rgba(120,80,20,.28); border-radius: 4px;
-    padding: 6px 11px; font-family: 'DM Mono', monospace; font-size: .63rem; color: #1a1208;
+    padding: 6px 11px; font-family: 'Outfit', sans-serif; font-size: .63rem; color: #1a1208;
     width: 180px; outline: none; transition: border-color .12s;
   }
   .ba-inv-input:focus { border-color: #5c3d08; }

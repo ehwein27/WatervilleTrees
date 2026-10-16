@@ -113,7 +113,7 @@
   .sp-drop::-webkit-scrollbar-thumb { background: rgba(201,151,58,.3); border-radius: 2px; }
   .sp-opt {
     padding: 6px 10px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .62rem;
     color: var(--parch, #f0e8d0);
     cursor: pointer;

@@ -77,7 +77,7 @@
   .dead-tree-list::-webkit-scrollbar{width:3px}
   .dead-tree-list::-webkit-scrollbar-thumb{background:rgba(201,151,58,.3);border-radius:2px}
   .dead-tree-row{display:flex;align-items:center;gap:10px;padding:6px 10px;background:var(--panel2);border-radius:4px;font-size:.6rem;color:var(--parch)}
-  .list-btn{background:transparent;border:1px solid var(--border);border-radius:3px;padding:4px 12px;font-family:'DM Mono',monospace;font-size:.56rem;color:var(--parch-dim);cursor:pointer;transition:all .13s;flex-shrink:0}
+  .list-btn{background:transparent;border:1px solid var(--border);border-radius:3px;padding:4px 12px;font-family:'Outfit',sans-serif;font-size:.56rem;color:var(--parch-dim);cursor:pointer;transition:all .13s;flex-shrink:0}
   .list-btn:hover{border-color:var(--gold);color:var(--parch)}
   .list-btn.primary{background:var(--gold);border-color:var(--gold);color:var(--bark)}
   .list-btn.primary:hover{opacity:.85}

@@ -366,8 +366,8 @@
 {/if}
 
 <style>
-  .edit-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9000;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 16px;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--parch);display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,.5);animation:toastIn .2s ease-out}
-  .edit-toast-undo{background:transparent;border:1px solid var(--gold);border-radius:3px;padding:3px 10px;font-family:'DM Mono',monospace;font-size:.56rem;color:var(--gold);cursor:pointer;transition:all .13s}
+  .edit-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9000;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 16px;font-family:'Outfit',sans-serif;font-size:.6rem;color:var(--parch);display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,.5);animation:toastIn .2s ease-out}
+  .edit-toast-undo{background:transparent;border:1px solid var(--gold);border-radius:3px;padding:3px 10px;font-family:'Outfit',sans-serif;font-size:.56rem;color:var(--gold);cursor:pointer;transition:all .13s}
   .edit-toast-undo:hover{background:rgba(201,151,58,.15)}
   @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 </style>
