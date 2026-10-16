@@ -11,6 +11,22 @@
   --cond-good:#1a8c2a;--cond-fair:#c47a00;--cond-poor:#cc3300;--cond-dead:#6b1a1a;
   --bg:#f2ede2;
 }
+/* ─── DARK THEME ─── */
+[data-theme="dark"]{
+  --bg:#100d04;--panel:#1b1507;--panel2:#231c09;--panel3:#2a2110;
+  --border:rgba(201,151,58,.22);--gold-hi:rgba(201,151,58,.18);
+  --canopy:#8fc67f;--bark:#f0e8d0;--parch:#f0e8d0;--parch-dim:rgba(240,232,208,.5);
+  --cond-fair:#d4860a;
+}
+[data-theme="dark"] .fb{color:rgba(240,232,208,.5);border-color:rgba(201,151,58,.25)}
+[data-theme="dark"] .val-note{color:rgba(240,232,208,.35)}
+[data-theme="dark"] .brand-name{color:var(--parch)}
+[data-theme="dark"] .add-fab{color:#100d04}
+[data-theme="dark"] .cond-badge.cg{color:#5ec254;background:rgba(94,194,84,.15)}
+[data-theme="dark"] .cond-badge.cf{color:#e8c34a;background:rgba(232,195,74,.15)}
+[data-theme="dark"] .cond-badge.cp{color:#e07a30;background:rgba(224,122,48,.15)}
+[data-theme="dark"] .cond-badge.cd{color:#d04444;background:rgba(208,68,68,.15)}
+
 body{font-family:'Outfit',sans-serif;font-size:16px;background:var(--bg);color:var(--bark);height:100vh;display:flex;flex-direction:column;overflow:hidden}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
 
@@ -289,7 +305,7 @@ textarea.ntxt::placeholder{color:var(--parch-dim)}
 .del-cancel:hover{background:var(--panel3);color:var(--parch)}
 
 /* ADD TREE FAB */
-.add-fab{position:fixed;bottom:20px;left:14px;z-index:500;background:var(--gold);border:none;border-radius:50%;width:48px;height:48px;font-size:1.6rem;color:var(--panel);cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;font-weight:700;box-shadow:0 3px 12px rgba(0,0,0,.18);transition:opacity .15s, transform .15s, background .15s}
+.add-fab{position:fixed;bottom:20px;left:14px;z-index:500;background:var(--gold);border:none;border-radius:50%;width:48px;height:48px;font-size:1.6rem;color:#100d04;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;font-weight:700;box-shadow:0 3px 12px rgba(0,0,0,.18);transition:opacity .15s, transform .15s, background .15s}
 .add-fab:hover{opacity:.85;transform:scale(1.08)}
 .add-fab.locked{background:var(--panel2);border:1px solid var(--border);color:var(--parch-dim);font-size:1.1rem;box-shadow:none}
 .add-fab.locked:hover{opacity:1;transform:none;border-color:var(--gold);color:var(--gold)}
