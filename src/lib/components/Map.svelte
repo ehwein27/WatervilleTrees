@@ -177,12 +177,13 @@
 
   const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
 
-  // Shared tile options — defer fetches until pan/zoom settles, pre-cache surrounding tiles
-  const TILE_OPTS = {
-    updateWhenZooming: false,
-    keepBuffer: 2,
-    ...(isMobile ? { updateWhenIdle: true } : {}),
-  };
+  // Shared tile options
+  // keepBuffer: pre-load this many tile-widths outside the viewport so zoom-out
+  // reveals cached tiles instead of blank areas. Higher on desktop since bandwidth
+  // is cheaper there; mobile stays conservative with idle-only updates.
+  const TILE_OPTS = isMobile
+    ? { updateWhenZooming: false, updateWhenIdle: true, keepBuffer: 2 }
+    : { updateWhenZooming: false, keepBuffer: 8 };
 
   function addOverlayLayers() {
     if (isMobile) return;
