@@ -260,7 +260,7 @@ import { get } from 'svelte/store';
       maxZoom: 19, maxNativeZoom: 19, opacity: 0.9, attribution: '',
       ...TILE_OPTS,
     });
-    tileLight = L.default.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    tileLight = L.default.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '©OpenStreetMap ©CARTO',
       subdomains: 'abcd', maxZoom: 19,
       ...TILE_OPTS,
