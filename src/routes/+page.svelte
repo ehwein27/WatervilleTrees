@@ -575,12 +575,16 @@
       <button class="logo-btn" onclick={() => menuOpen.update(v => !v)} aria-label="Open menu">
         <!-- Tree icon (desktop) — organic canopy above clearly brown trunk -->
         <svg class="brand-leaf" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-          <circle cx="12" cy="8"  r="6"   fill="currentColor"/>
-          <circle cx="7"  cy="10" r="4"   fill="currentColor"/>
-          <circle cx="17" cy="10" r="4"   fill="currentColor"/>
-          <circle cx="9"  cy="5"  r="4"   fill="currentColor"/>
-          <circle cx="15" cy="5"  r="4"   fill="currentColor"/>
-          <circle cx="12" cy="2"  r="3"   fill="currentColor"/>
+          <!-- bottom row — widest -->
+          <circle cx="7"  cy="12" r="4"   fill="currentColor"/>
+          <circle cx="12" cy="11" r="4"   fill="currentColor"/>
+          <circle cx="17" cy="12" r="4"   fill="currentColor"/>
+          <!-- middle row -->
+          <circle cx="9"  cy="7"  r="3.5" fill="currentColor"/>
+          <circle cx="15" cy="7"  r="3.5" fill="currentColor"/>
+          <!-- top — narrowest -->
+          <circle cx="12" cy="3"  r="3"   fill="currentColor"/>
+          <!-- trunk drawn last so it renders on top of canopy overlap -->
           <rect x="10" y="14" width="4" height="9" rx="1.5" fill="#7a4e2d"/>
         </svg>
         <!-- Hamburger (mobile) -->
@@ -661,12 +665,12 @@
   {#if $loading || $loadError}
     <div id="map-loading" class:has-error={$loadError}>
       <svg class="loading-leaf" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
-        <circle cx="12" cy="8"  r="6"   fill="currentColor"/>
-        <circle cx="7"  cy="10" r="4"   fill="currentColor"/>
-        <circle cx="17" cy="10" r="4"   fill="currentColor"/>
-        <circle cx="9"  cy="5"  r="4"   fill="currentColor"/>
-        <circle cx="15" cy="5"  r="4"   fill="currentColor"/>
-        <circle cx="12" cy="2"  r="3"   fill="currentColor"/>
+        <circle cx="7"  cy="12" r="4"   fill="currentColor"/>
+        <circle cx="12" cy="11" r="4"   fill="currentColor"/>
+        <circle cx="17" cy="12" r="4"   fill="currentColor"/>
+        <circle cx="9"  cy="7"  r="3.5" fill="currentColor"/>
+        <circle cx="15" cy="7"  r="3.5" fill="currentColor"/>
+        <circle cx="12" cy="3"  r="3"   fill="currentColor"/>
         <rect x="10" y="14" width="4" height="9" rx="1.5" fill="#7a4e2d"/>
       </svg>
       <div class="loading-title">Waterville Tree Inventory</div>
