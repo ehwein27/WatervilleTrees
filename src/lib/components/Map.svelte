@@ -260,9 +260,9 @@ import { get } from 'svelte/store';
       maxZoom: 19, maxNativeZoom: 19, opacity: 0.9, attribution: '',
       ...TILE_OPTS,
     });
-    tileLight = L.default.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '©OpenStreetMap ©CARTO',
-      subdomains: 'abcd', maxZoom: 19,
+    tileLight = L.default.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles © Esri',
+      maxZoom: 19, maxNativeZoom: 18,
       ...TILE_OPTS,
     });
 
