@@ -239,7 +239,7 @@
                 position:absolute;
                 left:${dx - LBL_W / 2}px;top:${dy - LBL_H / 2}px;
                 width:${LBL_W}px;
-                font-family:'DM Mono',monospace;
+                font-family:'Outfit',sans-serif;
                 font-size:9px;font-weight:700;
                 line-height:${LBL_H}px;
                 text-align:center;
@@ -293,7 +293,7 @@
   <title>{data.title} — Waterville Tree Inventory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </svelte:head>
 
@@ -301,20 +301,41 @@
 
   <!-- Cover -->
   <div class="cover" class:cemetery={data.isCemetery}>
-    <div class="org">Waterville Urban Tree Inventory</div>
-    <h1>{data.title}</h1>
-    {#if data.subtitle}<div class="cover-sub">{data.subtitle}</div>{/if}
-    <div class="cover-meta">Generated {genDate} &nbsp;·&nbsp; {data.stats.total} trees &nbsp;·&nbsp; Live data, refreshes on load</div>
-    <button class="dl-btn" onclick={() => window.print()} title="Print report">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      Print Report
-    </button>
+    <div class="cover-accent"></div>
+    <div class="cover-body">
+      <div class="org">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:5px;flex-shrink:0"><path d="M12 2C12 2 6 8 6 14a6 6 0 0 0 12 0c0-6-6-12-6-12z" fill="#2d5a27" fill-opacity=".7"/><path d="M12 22v-8" stroke="#2d5a27" stroke-width="1.5" stroke-linecap="round"/></svg>
+        City of Waterville, Maine &nbsp;·&nbsp; Urban Tree Inventory
+      </div>
+      <h1>{data.title}</h1>
+      {#if data.subtitle}<div class="cover-sub">{data.subtitle}</div>{/if}
+      <div class="cover-meta-row">
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Generated</span>
+          <span class="cover-meta-val">{genDate}</span>
+        </div>
+        <div class="cover-meta-divider"></div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Trees</span>
+          <span class="cover-meta-val">{data.stats.total}</span>
+        </div>
+        <div class="cover-meta-divider"></div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Data</span>
+          <span class="cover-meta-val">Live · refreshes on load</span>
+        </div>
+      </div>
+      <button class="dl-btn" onclick={() => window.print()} title="Print report">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / Save as PDF
+      </button>
+    </div>
   </div>
 
   <!-- KPI row -->
   <div class="kpi-grid">
     {#each kpis as k}
-      <div class="kpi">
+      <div class="kpi" style={k.color ? `--kpi-accent:${k.color}` : ''} class:kpi-cond={!!k.color}>
         <div class="kpi-n" style={k.color ? `color:${k.color}` : ''} class:kpi-sm={k.small}>{k.n}</div>
         <div class="kpi-l">{k.label}</div>
       </div>
@@ -327,6 +348,11 @@
   {:else}
     {#each pages as page, pi}
       <div class="chunk">
+        <!-- only shown when printing — identifies report across pages -->
+        <div class="print-running-hdr">
+          <span>{data.title}</span>
+          <span>Trees {pi * PAGE_SIZE + 1}–{Math.min((pi + 1) * PAGE_SIZE, sortedTrees.length)} of {sortedTrees.length}</span>
+        </div>
 
         <!-- Leaflet map header -->
         <div class="chunk-map-hdr">
@@ -400,10 +426,9 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ── Reset body from the dark app shell ────────────────────────── */
   :global(html) { scroll-behavior: smooth; }
   :global(body) {
-    font-family: 'DM Mono', monospace !important;
+    font-family: 'Outfit', sans-serif !important;
     background: #fdf8f0 !important;
     color: #1a1507 !important;
     height: auto !important;
@@ -413,74 +438,158 @@
   }
 
   .page {
-    max-width: 960px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 0 20px 72px;
+    padding: 0 24px 80px;
   }
 
   /* ── Cover ──────────────────────────────────────────────────────── */
   .cover {
-    text-align: center;
-    padding: 52px 24px 36px;
-    border-bottom: 2px solid rgba(120,80,20,.18);
-    margin-bottom: 28px;
+    padding: 0 0 36px;
+    border-bottom: 2px solid rgba(45,90,39,.2);
+    margin-bottom: 32px;
   }
+  .cover-accent {
+    height: 5px;
+    background: linear-gradient(90deg, #2d5a27, #5a8a40, #c9973a);
+    margin-bottom: 44px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cemetery .cover-accent {
+    background: linear-gradient(90deg, #3a0f0f, #6b1a1a, #8a3030);
+  }
+  .cover-body { text-align: center; padding: 0 24px; }
   .org {
-    font-size: .65rem;
-    letter-spacing: .14em;
+    display: inline-flex;
+    align-items: center;
+    font-size: .64rem;
+    letter-spacing: .13em;
     text-transform: uppercase;
-    color: #c9973a;
-    margin-bottom: 8px;
+    color: #2d5a27;
+    margin-bottom: 14px;
+    font-weight: 600;
   }
   h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 700;
     color: #0f2e14;
-    line-height: 1.2;
-    margin-bottom: 8px;
+    line-height: 1.18;
+    margin-bottom: 10px;
+    letter-spacing: -.01em;
   }
   .cemetery h1 { color: #3a0f0f; }
   .cover-sub {
-    font-size: .72rem;
+    font-family: 'Playfair Display', serif;
+    font-size: .9rem;
     color: #5c3d08;
     font-style: italic;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+    opacity: .8;
   }
-  .cover-meta {
-    font-size: .65rem;
-    letter-spacing: .07em;
-    color: #a08050;
+  .cover-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0 auto 22px;
+    max-width: 600px;
+    border: 1px solid rgba(120,80,20,.2);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .cover-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    flex: 1;
+    min-width: 120px;
+  }
+  .cover-meta-item + .cover-meta-item { border-left: 1px solid rgba(120,80,20,.15); }
+  .cover-meta-label {
+    font-size: .58rem;
+    letter-spacing: .12em;
     text-transform: uppercase;
+    color: #a08050;
+    margin-bottom: 2px;
   }
+  .cover-meta-val {
+    font-size: .76rem;
+    font-weight: 500;
+    color: #2a1e0a;
+  }
+  .cover-meta-divider { display: none; }
+
+  /* ── Print button ───────────────────────────────────────────────── */
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #2d5a27;
+    border: none;
+    border-radius: 5px;
+    padding: 9px 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #fff;
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+  }
+  .dl-btn:hover { background: #1f4019; transform: translateY(-1px); }
+  .dl-btn:active { transform: translateY(0); }
+  .cemetery .dl-btn { background: #6b1a1a; }
+  .cemetery .dl-btn:hover { background: #4a1010; }
 
   /* ── KPI grid ───────────────────────────────────────────────────── */
   .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 10px;
-    max-width: 800px;
-    margin: 0 auto 28px;
-    padding: 0 4px;
+    max-width: 820px;
+    margin: 0 auto 32px;
   }
   .kpi {
     background: #f5efe0;
     border: 1px solid rgba(120,80,20,.18);
     border-radius: 7px;
-    padding: 16px 10px;
+    padding: 18px 12px 14px;
     text-align: center;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  .kpi-n { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #1a5216; line-height: 1; }
-  .kpi-n.kpi-sm { font-size: 1.1rem; }
-  .kpi-l { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: #5c3d08; margin-top: 5px; }
+  .kpi.kpi-cond {
+    border-left: 3px solid var(--kpi-accent, rgba(120,80,20,.18));
+  }
+  .kpi-n {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1a5216;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .kpi-n.kpi-sm { font-size: 1.25rem; line-height: 1.3; }
+  .kpi-l {
+    font-size: .62rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #5c3d08;
+    margin-top: 4px;
+  }
 
-  /* ── Chunk: map header ──────────────────────────────────────────── */
+  /* ── Chunk ──────────────────────────────────────────────────────── */
   .chunk {
-    margin-bottom: 40px;
+    margin-bottom: 44px;
     border: 1px solid rgba(120,80,20,.18);
-    border-radius: 8px;
+    border-radius: 9px;
     overflow: hidden;
   }
+
+  .print-running-hdr { display: none; }
 
   .chunk-map-hdr {
     display: flex;
@@ -488,27 +597,25 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
-    padding: 8px 14px;
+    padding: 9px 16px;
     background: #ece4cc;
     border-bottom: 1px solid rgba(120,80,20,.15);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .chunk-map-title {
     font-size: .65rem;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: #5c3d08;
-    font-weight: 500;
+    font-weight: 600;
   }
-  .chunk-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+  .chunk-legend { display: flex; flex-wrap: wrap; gap: 12px; }
   .chunk-leg-item {
     display: flex;
     align-items: center;
-    gap: 4px;
-    font-size: .65rem;
+    gap: 5px;
+    font-size: .64rem;
     color: #5c3d08;
     text-transform: uppercase;
     letter-spacing: .06em;
@@ -517,11 +624,13 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.5);
+    border: 1.5px solid rgba(255,255,255,.6);
     flex-shrink: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  /* ── Leaflet map container ──────────────────────────────────────── */
+  /* ── Leaflet map ────────────────────────────────────────────────── */
   .chunk-map-el {
     width: 100%;
     height: 380px;
@@ -544,17 +653,18 @@
   .chunk-tbl {
     width: 100%;
     border-collapse: collapse;
-    font-size: .6rem;
+    font-size: .72rem;
     border-top: 1px solid rgba(120,80,20,.18);
   }
   th {
     background: #ece4cc;
     text-align: left;
-    padding: 7px 10px;
-    font-size: .65rem;
-    letter-spacing: .09em;
+    padding: 8px 12px;
+    font-size: .64rem;
+    letter-spacing: .08em;
     text-transform: uppercase;
     color: #5c3d08;
+    font-weight: 600;
     border-bottom: 2px solid rgba(120,80,20,.22);
     white-space: nowrap;
     user-select: none;
@@ -564,77 +674,102 @@
   th.sortable { cursor: pointer; }
   th.sortable:hover { background: #ddd0b4; }
   td {
-    padding: 6px 10px;
+    padding: 7px 12px;
     border-bottom: 1px solid rgba(120,80,20,.1);
     vertical-align: middle;
     color: #2a1e0a;
+    line-height: 1.35;
   }
-  tr.even td { background: rgba(245,239,224,.6); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tr.even td {
+    background: rgba(245,239,224,.55);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
   tr:hover td { background: rgba(201,151,58,.08); }
   tr:last-child td { border-bottom: none; }
 
-  .td-dim    { color: #8a6a3a; white-space: nowrap; }
-  .td-name   { font-weight: 500; color: #1c1c1e; }
+  .td-dim    { color: #8a6a3a; white-space: nowrap; font-size: .67rem; }
+  .td-name   { font-weight: 600; color: #1c1c1e; }
   .td-italic { font-style: italic; color: #3a4a2a; }
   .td-num    { font-variant-numeric: tabular-nums; }
   .td-loc    { color: #3a4a2a; }
   .td-nowrap { white-space: nowrap; }
 
-  .cond-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+  .cond-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 
   /* ── Empty / footer ─────────────────────────────────────────────── */
-  .empty { text-align: center; padding: 56px 24px; color: #8a6a3a; font-size: .76rem; }
+  .empty { text-align: center; padding: 56px 24px; color: #8a6a3a; font-size: .78rem; }
   .footer {
-    margin-top: 40px;
-    font-size: .65rem;
-    letter-spacing: .07em;
+    margin-top: 44px;
+    font-size: .62rem;
+    letter-spacing: .08em;
     text-transform: uppercase;
     color: #a08050;
     text-align: center;
-    border-top: 1px solid rgba(120,80,20,.18);
-    padding-top: 16px;
+    border-top: 1px solid rgba(120,80,20,.15);
+    padding-top: 18px;
   }
-
-  /* ── Download / print button ────────────────────────────────────── */
-  .dl-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 18px;
-    background: transparent;
-    border: 1px solid rgba(120,80,20,.3);
-    border-radius: 4px;
-    padding: 6px 16px;
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .06em;
-    color: #5c3d08;
-    cursor: pointer;
-    transition: background .13s, border-color .13s;
-  }
-  .dl-btn:hover { background: rgba(120,80,20,.07); border-color: #8a5a1a; }
-  .cemetery .dl-btn { color: var(--cond-dead); border-color: rgba(107,26,26,.32); }
-  .cemetery .dl-btn:hover { background: rgba(107,26,26,.07); border-color: #8a3030; }
 
   /* ── Responsive ─────────────────────────────────────────────────── */
   @media (max-width: 600px) {
-    h1 { font-size: 1.5rem; }
+    h1 { font-size: 1.7rem; }
     .kpi-grid { grid-template-columns: repeat(2, 1fr); }
     .chunk-map-el { height: 260px; }
+    .cover-meta-row { flex-direction: column; }
+    .cover-meta-item + .cover-meta-item { border-left: none; border-top: 1px solid rgba(120,80,20,.15); }
   }
 
   /* ── Print ──────────────────────────────────────────────────────── */
+  @page { margin: 0.7in 0.75in; }
+
   @media print {
-    :global(body) { background: #fff !important; }
+    :global(body) { background: #fdf8f0 !important; }
     .dl-btn { display: none !important; }
     .page   { max-width: 100%; padding: 0; }
-    .cover  { padding: 24px 0 20px; }
-    .kpi    { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    th      { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #ece4cc !important; }
-    tr.even td { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: rgba(240,232,208,.4) !important; }
+    .cover  { padding: 0 0 28px; }
+    .cover-accent { margin-bottom: 32px; }
+    .cover-body { padding: 0; }
+
+    .print-running-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 14px 4px;
+      background: #f5efe0;
+      border-bottom: 1px solid rgba(120,80,20,.2);
+      font-size: .58rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8a6a3a;
+      font-family: 'Outfit', sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .kpi { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    th {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      background: #ece4cc !important;
+    }
+    tr.even td {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      background: rgba(245,239,224,.55) !important;
+    }
     tr      { break-inside: avoid; }
     thead   { display: table-header-group; }
-    .chunk  { break-inside: avoid-page; }
+    .chunk  { break-inside: avoid-page; margin-bottom: 32px; }
     .chunk-map-el { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .chunk-map-hdr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
