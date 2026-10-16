@@ -163,6 +163,17 @@
     } catch (e) { console.error('EAB flag toggle failed', e); }
     eabLoading = false;
   }
+  const PAGE_TITLE = {
+    map: 'Waterville Trees',
+    cumulative: 'Cumulative Data',
+    about: 'About',
+    'inventory-archive': 'Archive',
+    admin: 'Admin Panel',
+    'account-settings': 'Settings',
+    'bulk-add': 'Bulk Add',
+    'prospective-planting': 'Planting',
+  };
+
   $effect(() => {
     if ($currentPage !== 'map') filterPanelOpen.set(false);
     if ($currentPage === 'map') requestAnimationFrame(() => get(mapInstance)?.invalidateSize?.());
@@ -558,25 +569,21 @@
 <header>
   <div class="header-row">
 
-    <!-- Brand / Menu trigger -->
+    <!-- Brand / menu -->
     <div style="position:relative;display:flex;align-items:center">
-      <!-- Brand / home button -->
-      <button class="logo-btn" onclick={() => { currentPage.set('map'); menuOpen.set(false); }} aria-label="Home">
+      <!-- Desktop: single logo-btn opens menu -->
+      <button class="logo-btn" onclick={() => menuOpen.update(v => !v)} aria-label="Open menu">
         <svg class="brand-leaf" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 22c3-4 6-7 9-8-2.24 4-4.48 6.73-6.82 7 .56-7.04 7-12 11-13z"/></svg>
+        <!-- Hamburger (mobile) -->
+        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         <div class="brand-text">
           <span class="brand-name">Waterville Tree Inventory</span>
           <span class="brand-sub">City of Waterville, Maine</span>
         </div>
-      </button>
-      <!-- Menu trigger (separate from home) -->
-      <button class="menu-btn" onclick={() => menuOpen.update(v => !v)} aria-label="Open menu">
-        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         <svg class="brand-caret" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <!-- Mobile center title (also a home button) -->
-      <button class="site-title" onclick={() => { currentPage.set('map'); menuOpen.set(false); }}>
-        <span class="title-short">Waterville Trees</span>
-      </button>
+      <!-- Mobile: centered title shows current page context -->
+      <span class="site-title">{PAGE_TITLE[$currentPage] ?? 'Waterville Trees'}</span>
       <MainMenu onTasks={openReportsHub} />
     </div>
 
