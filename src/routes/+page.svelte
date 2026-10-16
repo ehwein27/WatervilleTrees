@@ -571,12 +571,17 @@
 
     <!-- Brand / menu -->
     <div style="position:relative;display:flex;align-items:center">
-      <!-- Desktop: single logo-btn opens menu -->
+      <!-- Map home button — always visible left of logo -->
+      <button class="map-home-btn" onclick={() => { currentPage.set('map'); menuOpen.set(false); }} aria-label="Go to map">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 13 8 13s8-7.5 8-13a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+      </button>
+      <!-- Logo / menu toggle -->
       <button class="logo-btn" onclick={() => menuOpen.update(v => !v)} aria-label="Open menu">
         <!-- Tree icon (desktop) -->
         <svg class="brand-leaf" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <circle cx="12" cy="8" r="5.5"/>
-          <rect x="10.5" y="13" width="3" height="8" rx="1"/>
+          <ellipse cx="12" cy="10" rx="7.5" ry="6"/>
+          <ellipse cx="12" cy="5.5" rx="5" ry="4"/>
+          <rect x="10.5" y="16" width="3" height="6" rx="1"/>
         </svg>
         <!-- Hamburger (mobile) -->
         <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -586,8 +591,6 @@
         </div>
         <svg class="brand-caret" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <!-- Map pin — desktop only, sits beside the logo button -->
-      <svg class="hdr-map-pin" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       <!-- Mobile: centered title shows current page context -->
       <span class="site-title">{PAGE_TITLE[$currentPage] ?? 'Waterville Trees'}</span>
       <MainMenu onTasks={openReportsHub} />
@@ -653,8 +656,9 @@
   {#if $loading || $loadError}
     <div id="map-loading" class:has-error={$loadError}>
       <svg class="loading-leaf" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
-        <circle cx="12" cy="8" r="5.5"/>
-        <rect x="10.5" y="13" width="3" height="8" rx="1"/>
+        <ellipse cx="12" cy="10" rx="7.5" ry="6"/>
+        <ellipse cx="12" cy="5.5" rx="5" ry="4"/>
+        <rect x="10.5" y="16" width="3" height="6" rx="1"/>
       </svg>
       <div class="loading-title">Waterville Tree Inventory</div>
       {#if $loadError}

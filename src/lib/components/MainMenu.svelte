@@ -44,10 +44,6 @@
       </div>
     {/if}
     <div class="menu-section">
-      <button class="menu-item menu-home" onclick={() => { currentPage.set('map'); close(); }}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7"><path d="M17 8C8 10 5.9 16.17 3.82 22c3-4 6-7 9-8-2.24 4-4.48 6.73-6.82 7 .56-7.04 7-12 11-13z"/></svg>
-        Map
-      </button>
       <button class="menu-item" onclick={() => { if (!$currentUser) { close(); authOpen.set(true); } else { close(); onTasks(); } }}>
         Reports &amp; Tasks
         {#if !$currentUser}
@@ -74,5 +70,4 @@
 
 <style>
   .menu-admin { color: var(--gold); }
-  .menu-home { display: inline-flex; align-items: center; gap: 6px; color: var(--canopy); font-weight: 500; }
 </style>
