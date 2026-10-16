@@ -119,9 +119,9 @@
         touchZoom:          false,
       });
 
-      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 19, maxNativeZoom: 18,
-        attribution: 'Tiles © Esri',
+      L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=f723634e-67bb-4666-8e92-5a5921712816', {
+        maxZoom: 20, maxNativeZoom: 20,
+        attribution: '© Stadia Maps © OpenMapTiles © OpenStreetMap contributors',
       }).addTo(map);
 
       const geo = currentPage.filter(t => t.lt && t.ln);

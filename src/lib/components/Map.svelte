@@ -260,9 +260,9 @@ import { get } from 'svelte/store';
       maxZoom: 19, maxNativeZoom: 19, opacity: 0.9, attribution: '',
       ...TILE_OPTS,
     });
-    tileLight = L.default.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-      attribution: 'Tiles © Esri',
-      maxZoom: 19, maxNativeZoom: 18,
+    tileLight = L.default.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=f723634e-67bb-4666-8e92-5a5921712816', {
+      attribution: '© Stadia Maps © OpenMapTiles © OpenStreetMap contributors',
+      maxZoom: 20, maxNativeZoom: 20,
       ...TILE_OPTS,
     });
 
