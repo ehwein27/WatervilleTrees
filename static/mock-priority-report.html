@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<title>Tree Health &amp; Priority Report — Immediate Action</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{font-family:'DM Mono',monospace;background:#faf6ee;color:#1a1507;margin:0;padding:0}
+  .cover{text-align:center;padding:48px 24px 32px}
+  .cover-label{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:#5c3d08;margin-bottom:10px}
+  .cover h1{font-family:'Playfair Display',serif;font-size:2rem;color:#0f2e14;margin:0 0 8px}
+  .cover-sub{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:#7a6030;margin-top:4px}
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:720px;margin:28px auto;padding:0 24px}
+  .kpi{background:#f0e8d0;border:1px solid rgba(120,80,20,.18);border-radius:6px;padding:16px;text-align:center}
+  .kpi-n{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700}
+  .kpi-l{font-size:.46rem;letter-spacing:.1em;text-transform:uppercase;color:#5c3d08;margin-top:3px}
+  .summary-prose{max-width:720px;margin:0 auto 24px;padding:0 24px;font-size:.62rem;color:#3a2a0a;line-height:1.6}
+  .methodology-box{max-width:720px;margin:0 auto 28px;padding:14px 20px;background:#f5f0e4;border:1px solid rgba(120,80,20,.22);border-radius:5px}
+  .methodology-box strong{font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:#5c3d08;display:block;margin-bottom:6px}
+  .methodology-box p{font-size:.58rem;color:#3a2a0a;line-height:1.6;margin:0}
+  .section-hd{font-family:'Playfair Display',serif;font-size:1.1rem;color:#0f2e14;max-width:900px;margin:32px auto 8px;padding:0 24px 6px;border-bottom:1px solid rgba(120,80,20,.2)}
+  table{width:100%;max-width:900px;margin:8px auto 24px;border-collapse:collapse;font-size:.58rem}
+  th{background:#e8dcc4;text-align:left;padding:6px 8px;font-size:.46rem;letter-spacing:.09em;text-transform:uppercase;color:#5c3d08;border-bottom:2px solid rgba(120,80,20,.3)}
+  td{padding:5px 8px;border-bottom:1px solid rgba(120,80,20,.1);vertical-align:middle}
+  .tier-badge{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.5rem;font-weight:500}
+  .eab-badge{display:inline-block;padding:0 4px;border-radius:2px;font-size:.46rem;font-weight:500;background:rgba(201,151,58,.2);color:#8a5c00;border:1px solid rgba(201,151,58,.4);margin-left:4px}
+  .factors-cell{color:#7a6030;font-size:.5rem}
+  .dead-note{font-style:italic;font-size:.56rem;color:#5c3d08;max-width:900px;margin:0 auto 8px;padding:0 24px}
+  .note{font-size:.58rem;color:#3a2a0a;line-height:1.6;max-width:900px;margin:0 auto 12px;padding:0 24px}
+  @media print{
+    body{background:#fff}
+    .cover,.kpi-grid,.summary-prose,.methodology-box{page-break-inside:avoid}
+    table{page-break-inside:auto}
+    tr{page-break-inside:avoid;page-break-after:auto}
+    thead{display:table-header-group}
+    .no-print{display:none}
+    a{text-decoration:none;color:inherit}
+  }
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-label">City of Waterville — Urban Tree Inventory</div>
+  <h1>Tree Health &amp; Priority Report</h1>
+  <div class="cover-sub">Generated 4/29/2026 · 18 trees assessed</div>
+  <div class="cover-sub">Scope: Immediate Action — Critical &amp; High Priority</div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi"><div class="kpi-n" style="color:#d04444">5</div><div class="kpi-l">Critical</div></div>
+  <div class="kpi"><div class="kpi-n" style="color:#d06828">13</div><div class="kpi-l">High</div></div>
+  <div class="kpi"><div class="kpi-n" style="color:#6b1a1a">4</div><div class="kpi-l">Dead</div></div>
+  <div class="kpi"><div class="kpi-n" style="color:#c9973a">7</div><div class="kpi-l">EAB Flags</div></div>
+</div>
+
+<div class="summary-prose">18 trees require immediate attention (Critical or High priority). 4 dead trees are scheduled for review.</div>
+
+<div class="methodology-box">
+  <strong>About the Priority Score</strong>
+  <p>Priority Scores are calculated from each tree's condition rating and recorded structural observations, including defects such as stem cavities, co-dominant stems, included bark, and similar indicators. Scores range from 0–100; lower scores indicate more urgent attention. This is a planning and triage tool — it is not a formal ISA TRAQ risk assessment.</p>
+</div>
+
+<div class="section-hd">Living Trees — Prioritized by Urgency (18 trees)</div>
+<table>
+  <thead>
+    <tr>
+      <th>Priority</th>
+      <th>Species</th>
+      <th>DBH</th>
+      <th>Condition</th>
+      <th>Street</th>
+      <th>Key Factors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:rgba(176,53,53,0.06)">
+      <td><span class="tier-badge" style="background:#d0444420;color:#d04444;border:1px solid #d0444460">Critical</span> <strong>10</strong></td>
+      <td>White Ash <span class="eab-badge">EAB</span></td>
+      <td>18"</td>
+      <td>Poor</td>
+      <td>Elm St</td>
+      <td class="factors-cell">Condition: Poor, Cavity-stem +2 more</td>
+    </tr>
+    <tr style="background:rgba(176,53,53,0.06)">
+      <td><span class="tier-badge" style="background:#d0444420;color:#d04444;border:1px solid #d0444460">Critical</span> <strong>22</strong></td>
+      <td>Green Ash <span class="eab-badge">EAB</span></td>
+      <td>24"</td>
+      <td>Poor</td>
+      <td>College Ave</td>
+      <td class="factors-cell">Condition: Poor, Co-dominant stems +1 more</td>
+    </tr>
+    <tr style="background:rgba(176,53,53,0.06)">
+      <td><span class="tier-badge" style="background:#d0444420;color:#d04444;border:1px solid #d0444460">Critical</span> <strong>28</strong></td>
+      <td>Silver Maple</td>
+      <td>32"</td>
+      <td>Poor</td>
+      <td>Main St</td>
+      <td class="factors-cell">Condition: Poor, Included bark, Seam</td>
+    </tr>
+    <tr style="background:rgba(176,53,53,0.06)">
+      <td><span class="tier-badge" style="background:#d0444420;color:#d04444;border:1px solid #d0444460">Critical</span> <strong>34</strong></td>
+      <td>Black Ash <span class="eab-badge">EAB</span></td>
+      <td>14"</td>
+      <td>Poor</td>
+      <td>Oak St</td>
+      <td class="factors-cell">Condition: Poor, EAB risk (ash species)</td>
+    </tr>
+    <tr style="background:rgba(176,53,53,0.06)">
+      <td><span class="tier-badge" style="background:#d0444420;color:#d04444;border:1px solid #d0444460">Critical</span> <strong>40</strong></td>
+      <td>Norway Maple</td>
+      <td>20"</td>
+      <td>Poor</td>
+      <td>Pleasant St</td>
+      <td class="factors-cell">Condition: Poor, Dieback (severe)</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>42</strong></td>
+      <td>White Ash <span class="eab-badge">EAB</span></td>
+      <td>12"</td>
+      <td>Fair</td>
+      <td>Prospect St</td>
+      <td class="factors-cell">Condition: Fair, EAB risk (ash species), Cavity-branch</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>46</strong></td>
+      <td>Red Oak</td>
+      <td>28"</td>
+      <td>Poor</td>
+      <td>Grove St</td>
+      <td class="factors-cell">Condition: Poor, Low live crown ratio</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>48</strong></td>
+      <td>American Elm</td>
+      <td>22"</td>
+      <td>Fair</td>
+      <td>Silver St</td>
+      <td class="factors-cell">Condition: Fair, Co-dominant stems, Wound-stem</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>52</strong></td>
+      <td>Green Ash <span class="eab-badge">EAB</span></td>
+      <td>10"</td>
+      <td>Fair</td>
+      <td>Drummond Ave</td>
+      <td class="factors-cell">Condition: Fair, EAB risk (ash species)</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>54</strong></td>
+      <td>Sugar Maple</td>
+      <td>16"</td>
+      <td>Poor</td>
+      <td>Western Ave</td>
+      <td class="factors-cell">Condition: Poor</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>56</strong></td>
+      <td>White Pine</td>
+      <td>26"</td>
+      <td>Fair</td>
+      <td>Upper Main St</td>
+      <td class="factors-cell">Condition: Fair, Overextended branch, Crack-branch</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>58</strong></td>
+      <td>White Ash <span class="eab-badge">EAB</span></td>
+      <td>8"</td>
+      <td>Good</td>
+      <td>Gilman St</td>
+      <td class="factors-cell">EAB risk (ash species), Over-mature age class</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>60</strong></td>
+      <td>Norway Spruce</td>
+      <td>18"</td>
+      <td>Fair</td>
+      <td>Kennedy Memorial Dr</td>
+      <td class="factors-cell">Condition: Fair, Dieback (moderate), Girdling roots present (moderate)</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>62</strong></td>
+      <td>Red Maple</td>
+      <td>14"</td>
+      <td>Fair</td>
+      <td>Eustis Pkwy</td>
+      <td class="factors-cell">Condition: Fair, Lion tailing, Low vigor</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>62</strong></td>
+      <td>Siberian Elm</td>
+      <td>20"</td>
+      <td>Fair</td>
+      <td>Mayflower Hill Dr</td>
+      <td class="factors-cell">Condition: Fair, Dead branches >2, Topping/heading cuts</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>64</strong></td>
+      <td>Eastern Cottonwood</td>
+      <td>30"</td>
+      <td>Fair</td>
+      <td>Water St</td>
+      <td class="factors-cell">Condition: Fair, Broken branch(s)</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>64</strong></td>
+      <td>American Linden</td>
+      <td>12"</td>
+      <td>Fair</td>
+      <td>Gold St</td>
+      <td class="factors-cell">Condition: Fair, Wound-root flare</td>
+    </tr>
+    <tr>
+      <td><span class="tier-badge" style="background:#d0682820;color:#d06828;border:1px solid #d0682860">High</span> <strong>65</strong></td>
+      <td>White Birch</td>
+      <td>10"</td>
+      <td>Fair</td>
+      <td>Toward St</td>
+      <td class="factors-cell">Condition: Fair, Sidewalk lifting-major</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-hd">Dead Trees (4 trees)</div>
+<p class="dead-note">Dead trees are listed separately. Priority scoring does not apply.</p>
+<table>
+  <thead>
+    <tr><th>#</th><th>Species</th><th>DBH</th><th>Street</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Silver Maple <span class="eab-badge" style="background:rgba(107,26,26,.15);color:#7a2020;border-color:rgba(107,26,26,.4)">Dead</span></td>
+      <td>36"</td>
+      <td>Main St</td>
+      <td class="factors-cell">Cavity-stem, Fungi/conks</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>White Ash <span class="eab-badge">EAB</span></td>
+      <td>22"</td>
+      <td>College Ave</td>
+      <td class="factors-cell">Dieback (severe), EAB confirmed</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>American Elm</td>
+      <td>18"</td>
+      <td>Elm St</td>
+      <td class="factors-cell">Dead/dying stem</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Green Ash <span class="eab-badge">EAB</span></td>
+      <td>12"</td>
+      <td>Oak St</td>
+      <td class="factors-cell">—</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-hd">EAB Risk — Ash Species (7 trees)</div>
+<p class="note">The following ash trees are flagged for Emerald Ash Borer (EAB) risk. EAB causes near-certain mortality in untreated ash trees. These trees are included in the tables above and are repeated here for reference.</p>
+<table>
+  <thead>
+    <tr><th>Species</th><th>DBH</th><th>Condition</th><th>Street</th><th>Priority Score</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>White Ash</td><td>18"</td><td>Poor</td><td>Elm St</td><td>10 — Critical</td></tr>
+    <tr><td>Green Ash</td><td>24"</td><td>Poor</td><td>College Ave</td><td>22 — Critical</td></tr>
+    <tr><td>Black Ash</td><td>14"</td><td>Poor</td><td>Oak St</td><td>34 — Critical</td></tr>
+    <tr><td>White Ash</td><td>12"</td><td>Fair</td><td>Prospect St</td><td>42 — High</td></tr>
+    <tr><td>Green Ash</td><td>10"</td><td>Fair</td><td>Drummond Ave</td><td>52 — High</td></tr>
+    <tr><td>White Ash</td><td>8"</td><td>Good</td><td>Gilman St</td><td>64 — High</td></tr>
+    <tr><td>White Ash</td><td>22"</td><td>Dead</td><td>College Ave</td><td><em>Dead</em></td></tr>
+  </tbody>
+</table>
+
+</body></html>
