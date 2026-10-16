@@ -43,6 +43,7 @@ header{display:flex;flex-direction:column;background:var(--panel);border-bottom:
 .brand-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--bark);line-height:1.1;white-space:nowrap}
 .brand-sub{font-size:.58rem;color:var(--parch-dim);letter-spacing:.07em;font-weight:500;white-space:nowrap}
 .brand-caret{color:var(--parch-dim);flex-shrink:0;transition:transform .2s;opacity:.6}
+.hdr-map-pin{color:var(--parch-dim);opacity:.45;flex-shrink:0;pointer-events:none;margin-left:2px}
 
 /* Desktop: hide mobile-only elements */
 .title-short{display:none}
@@ -392,6 +393,7 @@ textarea.ntxt::placeholder{color:var(--parch-dim)}
   .brand-text{display:none}
   .brand-caret{display:none}
   .brand-leaf{display:none}
+  .hdr-map-pin{display:none}
   .menu-icon{display:block}
   .site-title{display:block;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--bark);white-space:nowrap;text-align:center;flex:1;pointer-events:none}
   .title-full{display:none}
