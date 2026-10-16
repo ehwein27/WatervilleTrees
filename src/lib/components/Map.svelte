@@ -285,6 +285,15 @@
     selLayer = L.default.layerGroup().addTo(map);
     mapInstance.set(map);
 
+    // Ensure map knows its container size after the DOM settles (needed on first
+    // load / hard reload where the container may not have its final dimensions yet
+    // when Leaflet initializes, causing getBounds() to return a zero-size viewport
+    // and doRender() to filter out all markers).
+    requestAnimationFrame(() => {
+      map.invalidateSize();
+      doRender(true);
+    });
+
     map.on('moveend', onMapMove);
     map.on('zoomend', onZoomEnd);
     map.on('click', handleMapClick);

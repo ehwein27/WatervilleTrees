@@ -169,9 +169,14 @@
       addEmailSuccess = `${trimmed} added.`;
       await loadEmails();
     } catch (e) {
-      addEmailError = (e.message || '').includes('unique') || (e.message || '').includes('duplicate')
+      let raw = e.message || '';
+      // The server returns JSON; unwrap up to two levels to get the human-readable message.
+      try { const p = JSON.parse(raw); raw = p.error || raw; } catch {}
+      try { const p = JSON.parse(raw); raw = p.message || raw; } catch {}
+      const lower = raw.toLowerCase();
+      addEmailError = lower.includes('unique') || lower.includes('duplicate')
         ? 'This email is already on the list.'
-        : 'Failed to add email.';
+        : raw || 'Failed to add email.';
     }
     addingEmail = false;
   }

@@ -22,6 +22,9 @@ async function writeLog(action, performed_by, details) {
 }
 
 export async function POST({ request }) {
+  if (!env.SUPABASE_SERVICE_ROLE_KEY) {
+    return json({ error: 'SUPABASE_SERVICE_ROLE_KEY is not set. Add it to your Netlify environment variables.' }, { status: 500 });
+  }
   const { email, performedBy } = await request.json().catch(() => ({}));
   if (!email || !/.+@.+\..+/.test(email)) {
     return json({ error: 'Valid email required.' }, { status: 400 });
@@ -37,6 +40,9 @@ export async function POST({ request }) {
 }
 
 export async function DELETE({ request }) {
+  if (!env.SUPABASE_SERVICE_ROLE_KEY) {
+    return json({ error: 'SUPABASE_SERVICE_ROLE_KEY is not set. Add it to your Netlify environment variables.' }, { status: 500 });
+  }
   const { email, performedBy } = await request.json().catch(() => ({}));
   if (!email) return json({ error: 'Email required.' }, { status: 400 });
   const r = await fetch(
