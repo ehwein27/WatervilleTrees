@@ -571,22 +571,17 @@
 
     <!-- Brand / menu -->
     <div style="position:relative;display:flex;align-items:center">
-      <!-- Map home button — always visible left of logo -->
-      <button class="map-home-btn" onclick={() => { currentPage.set('map'); menuOpen.set(false); }} aria-label="Go to map">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span class="map-home-label">Map</span>
-      </button>
       <!-- Logo / menu toggle -->
       <button class="logo-btn" onclick={() => menuOpen.update(v => !v)} aria-label="Open menu">
-        <!-- Tree icon (desktop) — leaf clusters + brown trunk -->
+        <!-- Tree icon (desktop) — organic canopy above clearly brown trunk -->
         <svg class="brand-leaf" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-          <circle cx="12" cy="11" r="5.5" fill="currentColor"/>
-          <circle cx="8"  cy="13" r="3.5" fill="currentColor"/>
-          <circle cx="16" cy="13" r="3.5" fill="currentColor"/>
-          <circle cx="10" cy="7"  r="4"   fill="currentColor"/>
-          <circle cx="14" cy="7"  r="4"   fill="currentColor"/>
-          <circle cx="12" cy="4"  r="3"   fill="currentColor"/>
-          <rect x="10.5" y="17" width="3" height="6" rx="1" fill="#7a4e2d"/>
+          <circle cx="12" cy="8"  r="6"   fill="currentColor"/>
+          <circle cx="7"  cy="10" r="4"   fill="currentColor"/>
+          <circle cx="17" cy="10" r="4"   fill="currentColor"/>
+          <circle cx="9"  cy="5"  r="4"   fill="currentColor"/>
+          <circle cx="15" cy="5"  r="4"   fill="currentColor"/>
+          <circle cx="12" cy="2"  r="3"   fill="currentColor"/>
+          <rect x="10" y="14" width="4" height="9" rx="1.5" fill="#7a4e2d"/>
         </svg>
         <!-- Hamburger (mobile) -->
         <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -595,6 +590,11 @@
           <span class="brand-sub">City of Waterville, Maine</span>
         </div>
         <svg class="brand-caret" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <!-- Map home button — right of logo -->
+      <button class="map-home-btn" onclick={() => { currentPage.set('map'); menuOpen.set(false); }} aria-label="Go to map">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="map-home-label">Map</span>
       </button>
       <!-- Mobile: centered title shows current page context -->
       <span class="site-title">{PAGE_TITLE[$currentPage] ?? 'Waterville Trees'}</span>
@@ -661,13 +661,13 @@
   {#if $loading || $loadError}
     <div id="map-loading" class:has-error={$loadError}>
       <svg class="loading-leaf" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
-        <circle cx="12" cy="11" r="5.5" fill="currentColor"/>
-        <circle cx="8"  cy="13" r="3.5" fill="currentColor"/>
-        <circle cx="16" cy="13" r="3.5" fill="currentColor"/>
-        <circle cx="10" cy="7"  r="4"   fill="currentColor"/>
-        <circle cx="14" cy="7"  r="4"   fill="currentColor"/>
-        <circle cx="12" cy="4"  r="3"   fill="currentColor"/>
-        <rect x="10.5" y="17" width="3" height="6" rx="1" fill="#7a4e2d"/>
+        <circle cx="12" cy="8"  r="6"   fill="currentColor"/>
+        <circle cx="7"  cy="10" r="4"   fill="currentColor"/>
+        <circle cx="17" cy="10" r="4"   fill="currentColor"/>
+        <circle cx="9"  cy="5"  r="4"   fill="currentColor"/>
+        <circle cx="15" cy="5"  r="4"   fill="currentColor"/>
+        <circle cx="12" cy="2"  r="3"   fill="currentColor"/>
+        <rect x="10" y="14" width="4" height="9" rx="1.5" fill="#7a4e2d"/>
       </svg>
       <div class="loading-title">Waterville Tree Inventory</div>
       {#if $loadError}
