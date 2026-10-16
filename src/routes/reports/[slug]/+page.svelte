@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte';
-  import { PUBLIC_STADIA_API_KEY } from '$env/static/public';
 
   let { data } = $props();
 
@@ -120,9 +119,9 @@
         touchZoom:          false,
       });
 
-      L.tileLayer(`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=${PUBLIC_STADIA_API_KEY}`, {
-        maxZoom: 20, maxNativeZoom: 20,
-        attribution: '© Stadia Maps © OpenMapTiles © OpenStreetMap contributors',
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20, maxNativeZoom: 19,
+        attribution: '© OpenStreetMap contributors © CARTO',
       }).addTo(map);
 
       const geo = currentPage.filter(t => t.lt && t.ln);

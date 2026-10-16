@@ -44,7 +44,6 @@
       </div>
     {/if}
     <div class="menu-section">
-      <button class="menu-item" onclick={() => { currentPage.set('map'); close(); }}>Map</button>
       <button class="menu-item" onclick={() => { if (!$currentUser) { close(); authOpen.set(true); } else { close(); onTasks(); } }}>
         Reports &amp; Tasks
         {#if !$currentUser}
