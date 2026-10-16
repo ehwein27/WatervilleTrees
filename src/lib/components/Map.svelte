@@ -2,7 +2,8 @@
   import { onMount, onDestroy } from 'svelte';
   import { filteredTrees, openTree, closeSidebar, selectedTree, mapInstance, placeModeActive, ppMapClickActive, rlClickHandler, rlViewListId, bulkClickHandler, mapMode, rlists } from '$lib/stores/ui.js';
   import { condColor } from '$lib/utils/format.js';
-import { get } from 'svelte/store';
+  import { get } from 'svelte/store';
+  import { PUBLIC_STADIA_API_KEY } from '$env/static/public';
 
   let mapEl;
   let map;
@@ -260,7 +261,7 @@ import { get } from 'svelte/store';
       maxZoom: 19, maxNativeZoom: 19, opacity: 0.9, attribution: '',
       ...TILE_OPTS,
     });
-    tileLight = L.default.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=f723634e-67bb-4666-8e92-5a5921712816', {
+    tileLight = L.default.tileLayer(`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=${PUBLIC_STADIA_API_KEY}`, {
       attribution: '© Stadia Maps © OpenMapTiles © OpenStreetMap contributors',
       maxZoom: 20, maxNativeZoom: 20,
       ...TILE_OPTS,

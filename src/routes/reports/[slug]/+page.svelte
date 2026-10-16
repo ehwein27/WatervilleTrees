@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { PUBLIC_STADIA_API_KEY } from '$env/static/public';
 
   let { data } = $props();
 
@@ -119,7 +120,7 @@
         touchZoom:          false,
       });
 
-      L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=f723634e-67bb-4666-8e92-5a5921712816', {
+      L.tileLayer(`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=${PUBLIC_STADIA_API_KEY}`, {
         maxZoom: 20, maxNativeZoom: 20,
         attribution: '© Stadia Maps © OpenMapTiles © OpenStreetMap contributors',
       }).addTo(map);
@@ -436,8 +437,8 @@
   :global(html) { scroll-behavior: smooth; }
   :global(body) {
     font-family: 'Outfit', sans-serif !important;
-    background: #fdf8f0 !important;
-    color: #1a1507 !important;
+    background: var(--bg) !important;
+    color: var(--bark) !important;
     height: auto !important;
     min-height: 100vh !important;
     overflow: auto !important;
@@ -514,12 +515,12 @@
   .cover-meta-strip {
     display: flex;
     align-items: stretch;
-    background: #f0ead8;
-    border-top: 3px solid #c9973a;
+    background: var(--panel3);
+    border-top: 3px solid var(--gold);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  .cemetery .cover-meta-strip { border-top-color: #6b1a1a; }
+  .cemetery .cover-meta-strip { border-top-color: var(--cond-dead); }
   .cover-meta-item {
     display: flex;
     flex-direction: column;
@@ -527,24 +528,24 @@
     flex: 1;
   }
   .cover-meta-item + .cover-meta-item {
-    border-left: 1px solid rgba(120,80,20,.18);
+    border-left: 1px solid var(--border);
   }
   .cover-meta-label {
     font-size: .57rem;
     letter-spacing: .13em;
     text-transform: uppercase;
-    color: #8a6030;
+    color: var(--parch-dim);
     margin-bottom: 3px;
   }
   .cover-meta-val {
     font-size: .8rem;
     font-weight: 600;
-    color: #1a1507;
+    color: var(--bark);
   }
   .cover-meta-divider { display: none; }
 
   .cover-btn-row {
-    background: #f0ead8;
+    background: var(--panel3);
     padding: 0 22px 18px;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -581,8 +582,8 @@
     margin: 0 auto 32px;
   }
   .kpi {
-    background: #f5efe0;
-    border: 1px solid rgba(120,80,20,.18);
+    background: var(--panel2);
+    border: 1px solid var(--border);
     border-radius: 7px;
     padding: 18px 12px 14px;
     text-align: center;
@@ -590,12 +591,12 @@
     print-color-adjust: exact;
   }
   .kpi.kpi-cond {
-    border-left: 3px solid var(--kpi-accent, rgba(120,80,20,.18));
+    border-left: 3px solid var(--kpi-accent, var(--border));
   }
   .kpi-n {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    color: #1a5216;
+    color: var(--canopy);
     line-height: 1;
     margin-bottom: 4px;
   }
@@ -604,14 +605,14 @@
     font-size: .62rem;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: #5c3d08;
+    color: var(--parch-dim);
     margin-top: 4px;
   }
 
   /* ── Chunk ──────────────────────────────────────────────────────── */
   .chunk {
     margin-bottom: 44px;
-    border: 1px solid rgba(120,80,20,.18);
+    border: 1px solid var(--border);
     border-radius: 9px;
     overflow: hidden;
   }
@@ -625,8 +626,8 @@
     flex-wrap: wrap;
     gap: 8px;
     padding: 9px 16px;
-    background: #ece4cc;
-    border-bottom: 1px solid rgba(120,80,20,.15);
+    background: var(--panel3);
+    border-bottom: 1px solid var(--border);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -634,7 +635,7 @@
     font-size: .65rem;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: #5c3d08;
+    color: var(--parch-dim);
     font-weight: 600;
   }
   .chunk-legend { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -643,7 +644,7 @@
     align-items: center;
     gap: 5px;
     font-size: .64rem;
-    color: #5c3d08;
+    color: var(--parch-dim);
     text-transform: uppercase;
     letter-spacing: .06em;
   }
@@ -671,7 +672,7 @@
     align-items: center;
     justify-content: center;
     font-size: .65rem;
-    color: #a08050;
+    color: var(--parch-dim);
     pointer-events: none;
     z-index: 0;
   }
@@ -681,45 +682,45 @@
     width: 100%;
     border-collapse: collapse;
     font-size: .72rem;
-    border-top: 1px solid rgba(120,80,20,.18);
+    border-top: 1px solid var(--border);
   }
   th {
-    background: #ece4cc;
+    background: var(--panel3);
     text-align: left;
     padding: 8px 12px;
     font-size: .64rem;
     letter-spacing: .08em;
     text-transform: uppercase;
-    color: #5c3d08;
+    color: var(--gold);
     font-weight: 600;
-    border-bottom: 2px solid rgba(120,80,20,.22);
+    border-bottom: 2px solid var(--border);
     white-space: nowrap;
     user-select: none;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   th.sortable { cursor: pointer; }
-  th.sortable:hover { background: #ddd0b4; }
+  th.sortable:hover { background: var(--panel2); }
   td {
     padding: 7px 12px;
-    border-bottom: 1px solid rgba(120,80,20,.1);
+    border-bottom: 1px solid var(--border);
     vertical-align: middle;
-    color: #2a1e0a;
+    color: var(--parch);
     line-height: 1.35;
   }
   tr.even td {
-    background: rgba(245,239,224,.55);
+    background: var(--panel2);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  tr:hover td { background: rgba(201,151,58,.08); }
+  tr:hover td { background: var(--gold-hi); }
   tr:last-child td { border-bottom: none; }
 
-  .td-dim    { color: #8a6a3a; white-space: nowrap; font-size: .67rem; }
-  .td-name   { font-weight: 600; color: #1c1c1e; }
-  .td-italic { font-style: italic; color: #3a4a2a; }
+  .td-dim    { color: var(--parch-dim); white-space: nowrap; font-size: .67rem; }
+  .td-name   { font-weight: 600; color: var(--parch); }
+  .td-italic { font-style: italic; color: var(--parch-dim); }
   .td-num    { font-variant-numeric: tabular-nums; }
-  .td-loc    { color: #3a4a2a; }
+  .td-loc    { color: var(--parch); }
   .td-nowrap { white-space: nowrap; }
 
   .cond-dot {
@@ -734,15 +735,15 @@
   }
 
   /* ── Empty / footer ─────────────────────────────────────────────── */
-  .empty { text-align: center; padding: 56px 24px; color: #8a6a3a; font-size: .78rem; }
+  .empty { text-align: center; padding: 56px 24px; color: var(--parch-dim); font-size: .78rem; }
   .footer {
     margin-top: 44px;
     font-size: .62rem;
     letter-spacing: .08em;
     text-transform: uppercase;
-    color: #a08050;
+    color: var(--parch-dim);
     text-align: center;
-    border-top: 1px solid rgba(120,80,20,.15);
+    border-top: 1px solid var(--border);
     padding-top: 18px;
   }
 
@@ -752,14 +753,14 @@
     .kpi-grid { grid-template-columns: repeat(2, 1fr); }
     .chunk-map-el { height: 260px; }
     .cover-meta-row { flex-direction: column; }
-    .cover-meta-item + .cover-meta-item { border-left: none; border-top: 1px solid rgba(120,80,20,.15); }
+    .cover-meta-item + .cover-meta-item { border-left: none; border-top: 1px solid var(--border); }
   }
 
   /* ── Print ──────────────────────────────────────────────────────── */
   @page { margin: 0.7in 0.75in; }
 
   @media print {
-    :global(body) { background: #fdf8f0 !important; }
+    :global(body) { background: #f2ede2 !important; }
     .dl-btn { display: none !important; }
     .cover-btn-row { display: none !important; }
     .page   { max-width: 100%; padding: 0; }
@@ -771,12 +772,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 5px 14px 4px;
-      background: #f5efe0;
-      border-bottom: 1px solid rgba(120,80,20,.2);
+      background: #ece8dc;
+      border-bottom: 1px solid rgba(50,75,40,.16);
       font-size: .58rem;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: #8a6a3a;
+      color: rgba(28,36,25,.45);
       font-family: 'Outfit', sans-serif;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
@@ -786,12 +787,12 @@
     th {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
-      background: #ece4cc !important;
+      background: #ece8dc !important;
     }
     tr.even td {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
-      background: rgba(245,239,224,.55) !important;
+      background: #f5f1e9 !important;
     }
     tr      { break-inside: avoid; }
     thead   { display: table-header-group; }
