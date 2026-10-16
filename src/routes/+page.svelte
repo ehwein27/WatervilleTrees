@@ -557,50 +557,52 @@
 <header>
   <div class="header-row">
 
-    <div style="position:relative;display:flex;align-items:center;gap:6px">
-      <span class="logo-btn" onclick={() => menuOpen.update(v => !v)}>
-        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        <span class="menu-label">Menu <span style="font-size:.65rem">&#9660;</span></span>
+    <!-- Brand / Menu trigger -->
+    <div style="position:relative;display:flex;align-items:center">
+      <button class="logo-btn" onclick={() => menuOpen.update(v => !v)} aria-label="Open menu">
+        <!-- Leaf icon (desktop) -->
+        <svg class="brand-leaf" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 22c3-4 6-7 9-8-2.24 4-4.48 6.73-6.82 7 .56-7.04 7-12 11-13z"/></svg>
+        <!-- Hamburger (mobile only) -->
+        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <div class="brand-text">
+          <span class="brand-name">Waterville Tree Inventory</span>
+          <span class="brand-sub">City of Waterville, Maine</span>
+        </div>
+        <svg class="brand-caret" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <!-- Mobile center title -->
+      <span class="site-title">
+        <span class="title-short">Waterville Trees</span>
       </span>
       <MainMenu onTasks={openReportsHub} />
     </div>
 
-    <span class="site-title">
-      <span class="title-full">Waterville Tree Inventory 2026</span>
-      <span class="title-short">Waterville Trees</span>
-    </span>
-
-    <div style="display:flex;align-items:center;gap:10px;justify-content:flex-end">
-      <div class="stats" style:visibility={$currentPage !== 'map' ? 'hidden' : ''} style:pointer-events={$currentPage !== 'map' ? 'none' : ''}>
-        <div class="stat">
-          <div class="stat-n">{$filteredConditionCounts.total}</div>
-          <div class="stat-l">Total</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n cg">{$filteredConditionCounts.Good}</div>
-          <div class="stat-l">Good</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n cf">{$filteredConditionCounts.Fair}</div>
-          <div class="stat-l">Fair</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n cp">{$filteredConditionCounts.Poor}</div>
-          <div class="stat-l">Poor</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n cd">{$filteredConditionCounts.Dead}</div>
-          <div class="stat-l">Dead</div>
-        </div>
-      </div>
-      <div class="filter-wrap" style:display={$currentPage !== 'map' ? 'none' : 'flex'}>
-        <button class="map-mode-btn" onclick={() => mapRef?.toggleMode()} title={$mapMode === 'satellite' ? 'Switch to street map' : 'Switch to satellite view'}>
-          <span class="map-mode-seg" class:active={$mapMode === 'light'}>Street</span>
-          <span class="map-mode-seg" class:active={$mapMode === 'satellite'}>Satellite</span>
-        </button>
-        <button class="filter-toggle" class:active={$filterPanelOpen} onclick={() => filterPanelOpen.update(v => !v)}>Filters</button>
-      </div>
+    <!-- Stats + controls -->
+    <div class="hdr-right">
       {#if $currentPage === 'map'}
+        <div class="stats" style:visibility={$filteredConditionCounts.total === 0 ? 'hidden' : ''}>
+          <div class="stat-primary">
+            <span class="stat-n">{$filteredConditionCounts.total}</span>
+            <span class="stat-l">trees</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="cond-row">
+            <span class="cond-mini cg" title="Good">{$filteredConditionCounts.Good}</span>
+            <span class="cond-mini cf" title="Fair">{$filteredConditionCounts.Fair}</span>
+            <span class="cond-mini cp" title="Poor">{$filteredConditionCounts.Poor}</span>
+            <span class="cond-mini cd" title="Dead">{$filteredConditionCounts.Dead}</span>
+          </div>
+          <div class="stat-sep"></div>
+          <button class="map-mode-btn" onclick={() => mapRef?.toggleMode()} title={$mapMode === 'satellite' ? 'Switch to street map' : 'Switch to satellite view'}>
+            <span class="map-mode-seg" class:active={$mapMode === 'light'}>Street</span>
+            <span class="map-mode-seg" class:active={$mapMode === 'satellite'}>Satellite</span>
+          </button>
+          <button class="filter-toggle" class:active={$filterPanelOpen} onclick={() => filterPanelOpen.update(v => !v)}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+            Filters
+          </button>
+        </div>
+        <!-- Mobile map controls -->
         <button class="hdr-icon-btn" onclick={() => mapRef?.toggleMode()} title={$mapMode === 'satellite' ? 'Switch to street map' : 'Switch to satellite'} aria-label={$mapMode === 'satellite' ? 'Switch to street map' : 'Switch to satellite'}>
           {#if $mapMode === 'satellite'}
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
@@ -609,7 +611,7 @@
           {/if}
         </button>
         <button class="hdr-icon-btn" class:active={$filterPanelOpen} onclick={() => filterPanelOpen.update(v => !v)} title="Filters" aria-label="Filters">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
         </button>
       {/if}
       {#if !$currentUser}
@@ -620,7 +622,6 @@
     </div>
 
   </div>
-
 </header>
 
 <div class="body">
@@ -1019,7 +1020,7 @@
     gap: 12px;
     z-index: 9999;
     box-shadow: 0 4px 20px rgba(0,0,0,.5);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .65rem;
     color: var(--parch);
     white-space: nowrap;
@@ -1029,7 +1030,7 @@
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 3px 10px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .65rem;
     color: var(--parch-dim);
     cursor: pointer;
@@ -1056,7 +1057,7 @@
     gap: 12px;
     z-index: 9999;
     box-shadow: 0 4px 20px rgba(0,0,0,.5);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .65rem;
     color: var(--parch);
     white-space: nowrap;
@@ -1075,7 +1076,7 @@
     gap: 12px;
     z-index: 9999;
     box-shadow: 0 4px 20px rgba(0,0,0,.5);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .65rem;
     color: var(--parch);
     white-space: nowrap;
@@ -1096,7 +1097,7 @@
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 3px 9px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .65rem;
     color: var(--parch-dim);
     cursor: pointer;
@@ -1133,7 +1134,7 @@
     border: 1px solid rgba(201,151,58,.3);
     border-radius: 3px;
     padding: 2px 8px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     font-size: .65rem;
     color: var(--gold);
     cursor: pointer;

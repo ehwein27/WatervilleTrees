@@ -230,7 +230,7 @@
                 <path d={arc.d} fill="none" stroke={arc.color} stroke-width="14" stroke-linecap="round"/>
               {/each}
               <text x="55" y="59" text-anchor="middle" font-family="Playfair Display,serif" font-size="15" fill="#0f2e14">{stats.total}</text>
-              <text x="55" y="71" text-anchor="middle" font-family="DM Mono,monospace" font-size="6" fill="#5c3d08" letter-spacing="1">TREES</text>
+              <text x="55" y="71" text-anchor="middle" font-family="Outfit,sans-serif" font-size="6" fill="#5c3d08" letter-spacing="1">TREES</text>
             </svg>
             <div class="cum-legend">
               {#each COND_ORDER as k}
@@ -468,11 +468,11 @@
   .cum-section{display:flex;flex-direction:column;gap:16px}
   .cum-section-hdr{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#5c3d08;opacity:.55;display:flex;align-items:center;gap:10px}
   .cum-section-hdr::after{content:'';flex:1;height:1px;background:rgba(120,80,20,.2)}
-  .cum-action-btn{background:transparent;border:1px solid rgba(120,80,20,.25);border-radius:4px;padding:5px 13px;font-family:'DM Mono',monospace;font-size:.74rem;color:#5c3d08;cursor:pointer;transition:all .13s;display:inline-flex;align-items:center;gap:5px;flex-shrink:0}
+  .cum-action-btn{background:transparent;border:1px solid rgba(120,80,20,.25);border-radius:4px;padding:5px 13px;font-family:'Outfit',sans-serif;font-size:.74rem;color:#5c3d08;cursor:pointer;transition:all .13s;display:inline-flex;align-items:center;gap:5px;flex-shrink:0}
   .cum-action-btn:hover{background:rgba(92,61,8,.1);border-color:#5c3d08}
   .cum-action-btn:disabled{opacity:.5;cursor:default}
   .cum-action-btn .ic{display:inline-flex;align-items:center}
-  .cum-back{background:transparent;border:1px solid rgba(120,80,20,.25);border-radius:4px;padding:5px 13px;font-family:'DM Mono',monospace;font-size:.74rem;color:#5c3d08;cursor:pointer;transition:all .13s}
+  .cum-back{background:transparent;border:1px solid rgba(120,80,20,.25);border-radius:4px;padding:5px 13px;font-family:'Outfit',sans-serif;font-size:.74rem;color:#5c3d08;cursor:pointer;transition:all .13s}
   .cum-back:hover{background:rgba(92,61,8,.1);border-color:#5c3d08}
   .cum-hero{text-align:center;padding:28px 0 8px}
   .cum-hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:#0f2e14;margin-bottom:6px}
@@ -487,7 +487,7 @@
   .cum-card-title{font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;color:#5c3d08;border-bottom:1px solid rgba(120,80,20,.18);padding-bottom:8px}
   .cum-card-title-row{display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(120,80,20,.18);padding-bottom:8px;font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;color:#5c3d08;flex-wrap:wrap}
   .cum-asset-by-wrap{position:relative;display:inline-flex;align-items:center}
-  .cum-asset-by-sel{appearance:none;-webkit-appearance:none;background:rgba(120,80,20,.08);border:1px solid rgba(120,80,20,.3);border-radius:4px;padding:2px 22px 2px 8px;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#5c3d08;cursor:pointer;outline:none;transition:border-color .13s,background .13s}
+  .cum-asset-by-sel{appearance:none;-webkit-appearance:none;background:rgba(120,80,20,.08);border:1px solid rgba(120,80,20,.3);border-radius:4px;padding:2px 22px 2px 8px;font-family:'Outfit',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#5c3d08;cursor:pointer;outline:none;transition:border-color .13s,background .13s}
   .cum-asset-by-sel:hover{background:rgba(120,80,20,.14);border-color:rgba(120,80,20,.5)}
   .cum-asset-by-sel:focus{border-color:#5c3d08}
   .cum-asset-by-chevron{position:absolute;right:6px;pointer-events:none;color:#5c3d08;opacity:.7}
