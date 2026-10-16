@@ -20,6 +20,8 @@ import { get } from 'svelte/store';
   let allTrees = [];
   // Debounce handle for marker rendering
   let renderTimer;
+  // Tracks the padded bounds of the last render — used to skip redundant redraws on pan
+  let renderedBounds = null;
 
   const WATERVILLE_BOUNDARY = [
     [44.5775,-69.6718],[44.5785,-69.6640],[44.5782,-69.6540],[44.5775,-69.6440],
@@ -38,7 +40,7 @@ import { get } from 'svelte/store';
     if (get(placeModeActive)) return;
     if (get(ppMapClickActive)) return;
     const clickPt = map.latLngToLayerPoint(e.latlng);
-    const bounds = map.getBounds().pad(0.15);
+    const bounds = renderedBounds || map.getBounds().pad(0.5);
     const HIT_PX = 8;
     let closest = null;
     let minDist = HIT_PX + 1;
@@ -57,14 +59,20 @@ import { get } from 'svelte/store';
     openTree(closest.id);
   }
 
-  // Render only markers in the current viewport — debounced to avoid flicker on pan/zoom
-  function doRender() {
+  // Render only markers in the current viewport, with a generous buffer so pans don't
+  // constantly trigger redraws. Pass force=true to bypass the bounds-skip check.
+  function doRender(force = false) {
     if (!map || !markerLayer) return;
+    const viewBounds = map.getBounds();
+    // Skip re-render if the current view is still fully inside last rendered area
+    if (!force && renderedBounds && renderedBounds.contains(viewBounds)) return;
+    // Render with a large buffer so nearby pans don't need a fresh redraw
+    const renderBounds = viewBounds.pad(0.5);
+    renderedBounds = renderBounds;
     markerLayer.clearLayers();
-    const bounds = map.getBounds().pad(0.15);
     allTrees.forEach(t => {
       if (!t.lt || !t.ln) return;
-      if (!bounds.contains([t.lt, t.ln])) return;
+      if (!renderBounds.contains([t.lt, t.ln])) return;
       markerLayer.addLayer(L.circleMarker([t.lt, t.ln], {
         renderer: canvasRenderer,
         radius: 5,
@@ -79,14 +87,18 @@ import { get } from 'svelte/store';
 
   function scheduleRender() {
     clearTimeout(renderTimer);
-    renderTimer = setTimeout(doRender, 80);
+    renderTimer = setTimeout(() => doRender(), 120);
   }
 
   function renderMarkers(trees) {
     allTrees = trees;
+    renderedBounds = null; // force full re-render when tree set changes
     scheduleRender();
   }
 
+  // After zoom completes, the scale has changed so rendered bounds are stale — re-render immediately
+  function onZoomEnd() { renderedBounds = null; doRender(true); }
+  // After pan, skip if still inside buffer; otherwise debounce a redraw
   function onMapMove() { scheduleRender(); }
 
   // Called by the bulk click handler with tree object
@@ -152,7 +164,7 @@ import { get } from 'svelte/store';
           color: '#b83535', weight: 2.5, opacity: 1,
         });
         ring.bindTooltip(
-          `<span style="font-family:'DM Mono',monospace;font-size:11px">#${t.id} ${t.n} — on list</span>`,
+          `<span style="font-family:'Outfit',sans-serif;font-size:11px">#${t.id} ${t.n} — on list</span>`,
           { direction: 'top', opacity: 1 }
         );
         ring.on('click', () => openTree(t.id));
@@ -271,14 +283,15 @@ import { get } from 'svelte/store';
     selLayer = L.default.layerGroup().addTo(map);
     mapInstance.set(map);
 
-    map.on('moveend zoomend', onMapMove);
+    map.on('moveend', onMapMove);
+    map.on('zoomend', onZoomEnd);
     map.on('click', handleMapClick);
 
     const unsubTrees = filteredTrees.subscribe(trees => renderMarkers(trees));
     const unsubRL = rlViewListId.subscribe(id => refreshRLViewLayer(id));
     const unsubSel = selectedTree.subscribe(t => setSelMarker(t));
 
-    return () => { unsubTrees(); unsubRL(); unsubSel(); map.off('moveend zoomend', onMapMove); map.off('click', handleMapClick); mapInstance.set(null); };
+    return () => { unsubTrees(); unsubRL(); unsubSel(); map.off('moveend', onMapMove); map.off('zoomend', onZoomEnd); map.off('click', handleMapClick); mapInstance.set(null); };
   });
 
   onDestroy(() => { clearTimeout(renderTimer); map?.remove(); mapInstance.set(null); });
