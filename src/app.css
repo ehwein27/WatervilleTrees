@@ -43,8 +43,9 @@ header{display:flex;flex-direction:column;background:var(--panel);border-bottom:
 .brand-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--bark);line-height:1.1;white-space:nowrap}
 .brand-sub{font-size:.58rem;color:var(--parch-dim);letter-spacing:.07em;font-weight:500;white-space:nowrap}
 .brand-caret{color:var(--parch-dim);flex-shrink:0;transition:transform .2s;opacity:.6}
-.map-home-btn{background:transparent;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:6px;color:var(--canopy);opacity:.75;flex-shrink:0;transition:all .15s}
-.map-home-btn:hover{background:rgba(45,90,39,.07);opacity:1}
+.map-home-btn{background:transparent;border:1px solid var(--border);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:5px;height:32px;padding:0 10px;border-radius:6px;color:var(--canopy);flex-shrink:0;transition:all .15s;font-family:'Outfit',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.02em}
+.map-home-btn:hover{background:var(--gold-hi);border-color:var(--gold);color:var(--bark)}
+.map-home-label{white-space:nowrap}
 
 /* Desktop: hide mobile-only elements */
 .title-short{display:none}
@@ -394,6 +395,8 @@ textarea.ntxt::placeholder{color:var(--parch-dim)}
   .brand-text{display:none}
   .brand-caret{display:none}
   .brand-leaf{display:none}
+  .map-home-label{display:none}
+  .map-home-btn{padding:0 8px}
   .menu-icon{display:block}
   .site-title{display:block;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--bark);white-space:nowrap;text-align:center;flex:1;pointer-events:none}
   .title-full{display:none}
